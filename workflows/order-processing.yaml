@@ -1,0 +1,597 @@
+app:
+    ai: null
+    can_be_launched: true
+    company: Brief
+    forms:
+        steps:
+            - fields: []
+              form_input: null
+              launchable: true
+              step_id: order_check
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: order_summary
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: order_summary
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: $needs_manager
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: $needs_manager
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: $decision
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: $decision
+                  field_options:
+                    - approve
+                    - reject
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: manual_review
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: order_summary
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: order_summary
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: validation_result
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: validation_result
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: requires_attention
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: requires_attention
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: manager_review
+    icon_key: e-credit-card
+    icon_path: ""
+    launch_role_id: Operateur
+    link: ""
+    name: Order Processing
+    pod_name: ""
+    process_description: ""
+    roles:
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: true
+          can_launch: true
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: Operateur
+              role_name: Operateur
+          role_id: Operateur
+          role_name: Operateur
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: order_check
+          search_items: []
+          view_access_roles: []
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: true
+          can_launch: true
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: cashier
+              role_name: cashier
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: management
+              role_name: management
+          role_id: cashier
+          role_name: cashier
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: manual_review
+          search_items: []
+          view_access_roles:
+            - management
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: cashier
+              role_name: cashier
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: management
+              role_name: management
+          role_id: management
+          role_name: management
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: manager_review
+          search_items: []
+          view_access_roles:
+            - cashier
+    search_items:
+        - field_label_ar: مهامي
+          field_label_en: My Tasks
+          field_label_fr: Mes Tâches
+          field_name: myTasks
+          field_type: menu_item
+        - field_label_ar: ملفاتي
+          field_label_en: My Dossiers
+          field_label_fr: Mes Dossiers
+          field_name: mesDossiers
+          field_type: menu_item
+        - field_label_ar: المستندات
+          field_label_en: Documents
+          field_label_fr: Documents
+          field_name: processDocuments
+          field_type: menu_item
+        - field_label_ar: مراجعة ملف
+          field_label_en: Audit a Dossier
+          field_label_fr: Auditer un dossier
+          field_name: requestInvestigation
+          field_type: menu_item
+        - field_label_ar: البحث عن ملف
+          field_label_en: Search Dossier
+          field_label_fr: Rechercher un Dossier
+          field_name: searchDossier
+          field_type: menu_item
+        - field_label_ar: إنشاء ملف
+          field_label_en: Create a dossier
+          field_label_fr: Créer un dossier
+          field_name: createForm
+          field_type: menu_item
+        - field_label_ar: تصميم العملية
+          field_label_en: Process Design
+          field_label_fr: Conception du processus
+          field_name: processDesign
+          field_type: menu_item
+        - field_label_ar: عام
+          field_label_en: General
+          field_label_fr: Général
+          field_name: General
+          field_type: tab
+        - field_label_ar: ملخص الطلب
+          field_label_en: Order summary
+          field_label_fr: Récapitulatif de la commande
+          field_name: order_summary
+          field_type: field_label
+        - field_label_ar: يتطلب موافقة المدير
+          field_label_en: Needs manager approval
+          field_label_fr: Nécessite l'approbation du manager
+          field_name: $needs_manager
+          field_type: field_label
+        - field_label_ar: القرار
+          field_label_en: Decision
+          field_label_fr: Décision
+          field_name: $decision
+          field_type: field_label
+        - field_label_ar: نتيجة التحقق
+          field_label_en: Validation result
+          field_label_fr: Résultat de validation
+          field_name: validation_result
+          field_type: field_label
+        - field_label_ar: يتطلب انتباهًا
+          field_label_en: Requires attention
+          field_label_fr: Nécessite une attention
+          field_name: requires_attention
+          field_type: field_label
+        - field_label_ar: مهامك المعلقة لهذه العملية
+          field_label_en: Your pending tasks for this process
+          field_label_fr: Vos tâches en attente pour ce processus
+          field_name: hint.my_tasks
+          field_type: hint
+        - field_label_ar: الملفات المفتوحة لهذه العملية
+          field_label_en: Dossiers opened for this process
+          field_label_fr: Dossiers ouverts pour ce processus
+          field_name: hint.my_dossiers
+          field_type: hint
+        - field_label_ar: المستندات المشتركة على ملفات هذه العملية
+          field_label_en: Documents shared on this process' dossiers
+          field_label_fr: Documents partagés sur les dossiers de ce processus
+          field_name: hint.documents
+          field_type: hint
+        - field_label_ar: ابحث عن ملف وتدقيق خطوات سير عمله
+          field_label_en: Search a dossier and audit its workflow steps
+          field_label_fr: Rechercher un dossier et auditer les étapes de son workflow
+          field_name: hint.audit_dossier
+          field_type: hint
+        - field_label_ar: ابحث في جميع الملفات المحفوظة لهذه العملية
+          field_label_en: Search every saved dossier of this process
+          field_label_fr: Rechercher tous les dossiers enregistrés de ce processus
+          field_name: hint.search_dossier
+          field_type: hint
+        - field_label_ar: افتح ملفًا جديدًا لهذه العملية
+          field_label_en: Open a new dossier for this process
+          field_label_fr: Ouvrir un nouveau dossier pour ce processus
+          field_name: hint.new_dossier
+          field_type: hint
+        - field_label_ar: اسأل المساعد الذكي — يملأ النموذج ويُطلقه بعد تأكيذك
+          field_label_en: Ask the AI assistant — it fills the form and launches on your confirmation
+          field_label_fr: Demander à l'assistant IA — il remplit le formulaire et lance sur votre confirmation
+          field_name: hint.ai_assist
+          field_type: hint
+        - field_label_ar: رموز النموذج اللغوي المستهلكة في هذه العملية وتكلفتها
+          field_label_en: LLM tokens used by this process and their cost
+          field_label_fr: Jetons IA utilisés par ce processus et leur coût
+          field_name: hint.token_usage
+          field_type: hint
+        - field_label_ar: إعادة تحميل القائمة
+          field_label_en: Reload the list
+          field_label_fr: Recharger la liste
+          field_name: hint.refresh
+          field_type: hint
+        - field_label_ar: 'تصميم هذه العملية: المخطط، النماذج، الأدوار، عناصر البحث والإصدارات'
+          field_label_en: 'Design this process: diagram, forms, roles, search items and versions'
+          field_label_fr: 'Concevoir ce processus : diagramme, formulaires, rôles, éléments de recherche et versions'
+          field_name: hint.process_design
+          field_type: hint
+    service_name: ""
+    shared_process_ids: []
+    task_groups: null
+    templates: []
+    user_id: 8c9fb880-38d9-48e1-8577-400850202679
+    username: fake_admin
+description: 'Pilot: simplified order check'
+process_id: order-processing
+tasks:
+    - description: Initialize the order processing pipeline
+      task_id: start
+      type: START
+    - config:
+        headers:
+            X-Service: order-validation
+        method: POST
+        url: https://httpbin.org/post
+      description: Validate order details and check inventory via external API
+      group: system
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "order_id":    {"type": "string"},
+            "items":       {"type": "array"},
+            "customer_id": {"type": "string"}
+          },
+          "required": ["order_id"]
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "valid":            {"type": "boolean"},
+            "inventory_status": {"type": "string"},
+            "message":          {"type": "string"}
+          }
+        }
+      task_id: validate_order
+      type: SYSTEM
+    - description: Operations team reviews the order before payment
+      group: cashier
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "order_summary":      {"type": "string"},
+            "validation_result":  {"type": "object"},
+            "requires_attention": {"type": "string"}
+          }
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "approved":       {"type": "boolean"},
+            "reviewer_notes": {"type": "string"}
+          }
+        }
+      task_id: manual_review
+      type: HUMAN
+    - description: Manager reviews the order before payment
+      group: management
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "order_summary":      {"type": "string"},
+            "validation_result":  {"type": "object"},
+            "requires_attention": {"type": "string"}
+          }
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "approved":       {"type": "boolean"},
+            "reviewer_notes": {"type": "string"}
+          }
+        }
+      task_id: manager_review
+      type: HUMAN
+    - config:
+        headers:
+            X-Service: payment-processing
+        method: POST
+        url: https://httpbin.org/post
+      description: Charge the customer for the approved order
+      group: system
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "order_id":       {"type": "string"},
+            "amount":         {"type": "number"},
+            "payment_method": {"type": "string"}
+          },
+          "required": ["order_id", "amount"]
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "transaction_id": {"type": "string"},
+            "status":         {"type": "string"}
+          }
+        }
+      task_id: process_payment
+      type: SYSTEM
+    - description: Finalize order processing
+      task_id: end
+      type: END
+topology:
+    - condition: always
+      from: start
+      to: validate_order
+    - condition: order is valid and requires human review
+      from: validate_order
+      to: manual_review
+    - condition: order is invalid and should be rejected
+      from: validate_order
+      to: end
+    - condition: order amount exceeds $1000 — route to manager for approval before payment
+      from: manual_review
+      to: manager_review
+    - condition: reviewer approved the order AND amount is $1000 or less
+      from: manual_review
+      to: process_payment
+    - condition: reviewer rejected the order
+      from: manual_review
+      to: end
+    - condition: manager approved the order
+      from: manager_review
+      to: process_payment
+    - condition: manager rejected the order
+      from: manager_review
+      to: end
+    - condition: payment completed or failed
+      from: process_payment
+      to: end

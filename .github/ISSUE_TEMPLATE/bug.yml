@@ -1,0 +1,32 @@
+name: Bug report
+description: Something in the engine doesn't behave as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, and what did you expect instead?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: git commit or compose build date (docker compose config | head)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: docker logs oumma-oumma-1 | tail -50 (redact secrets)
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [engine, auth, agent/LLM, design/management API, MCP tools, compose/deploy, other]
+    validations:
+      required: false

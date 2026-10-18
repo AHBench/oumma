@@ -1,0 +1,22 @@
+app:
+    ai: null
+    can_be_launched: true
+    company: Brief
+    forms:
+        steps: []
+    icon_path: ""
+    launch_role_id: CustRelations
+    link: ""
+    name: Chat Project
+    pod_name: ""
+    process_description: ""
+    roles: []
+    search_items: []
+    service_name: ""
+    shared_process_ids: []
+    task_groups: null
+    templates: []
+    user_id: 8c9fb880-38d9-48e1-8577-400850202679
+    username: fake_admin
+description: Created via AI chat
+process_id: chat-project

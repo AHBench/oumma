@@ -1,0 +1,135 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    # No host port — the platform uses ONE external port (8095).
+    # Debug the DB with: docker exec -it oumma-postgres-1 psql -U oumma -d oumma
+    environment:
+      POSTGRES_USER: oumma
+      POSTGRES_PASSWORD: oumma
+      POSTGRES_DB: oumma
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oumma"]
+      interval: 5s
+      timeout: 300s
+      retries: 5
+    networks:
+      - shared
+      - internal
+
+  oumma:
+    build: .
+    ports:
+      - "8095:8080"
+    volumes:
+      # rw: the management endpoints write process config into these YAML files.
+      - ./workflows:/processes
+      - ./docs:/docs
+    environment:
+      DATABASE_URL: postgres://oumma:oumma@postgres:5432/oumma?sslmode=disable
+      # --- LLM (OpenAI-compatible endpoint: vLLM, Ollama, OpenAI, …) ---
+      # Base URL of the chat-completions endpoint (must end with /v1).
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-http://llm.local/v1}
+      # Model name served by that endpoint.
+      OPENAI_MODEL: ${OPENAI_MODEL:-your-model-name}
+      # API key (empty = keyless local server). Remote servers that require
+      # auth (vLLM with --api-key, OpenAI, …) need this set.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Generation / server tuning (all optional).
+      LLM_KEEP_ALIVE: ${LLM_KEEP_ALIVE:-5m}
+      LLM_NUM_CTX: ${LLM_NUM_CTX:-4096}
+      LLM_TEMPERATURE: ${LLM_TEMPERATURE:-0.7}
+      # Seconds before a single LLM call is aborted.
+      LLM_CALL_TIMEOUT_SEC: ${LLM_CALL_TIMEOUT_SEC:-300}
+      # --- Designer-mode LLM (optional, separate from the process LLM) ---
+      # The design chat may run on a different endpoint/model (e.g. a
+      # stronger model for design work). Unset = the design chat uses the
+      # process LLM above.
+      DESIGNER_OPENAI_BASE_URL: ${DESIGNER_OPENAI_BASE_URL:-}
+      DESIGNER_OPENAI_MODEL: ${DESIGNER_OPENAI_MODEL:-}
+      DESIGNER_OPENAI_API_KEY: ${DESIGNER_OPENAI_API_KEY:-}
+      # --- MCP-like tools (Telegram / Gmail / WhatsApp / generic HTTP) ---
+      # System tasks that fire outbound HTTP calls when the process reaches
+      # them — deterministic, zero LLM tokens. Per-task credentials
+      # (bot token, gateway API key, …) are configured in the designer's
+      # Tools tab; these env vars configure the shared transport layer.
+      # "true" (default): build the exact payload, log it, simulate success.
+      # Set to "false" for real delivery (requires real per-task credentials).
+      MCP_TOOLS_DRY_RUN: ${MCP_TOOLS_DRY_RUN:-true}
+      # Telegram Bot API base (self-hosted bots-api proxy, etc.).
+      MCP_TELEGRAM_API_BASE: ${MCP_TELEGRAM_API_BASE:-https://api.telegram.org}
+      # Fallback email gateway for Gmail tasks (a task's own "gateway" config
+      # field wins when set). Point it at any JSON mail API:
+      # POST {from,to,subject,body} → 200.
+      MCP_GMAIL_GATEWAY: ${MCP_GMAIL_GATEWAY:-}
+      # Meta WhatsApp Cloud API base.
+      MCP_WHATSAPP_API_BASE: ${MCP_WHATSAPP_API_BASE:-https://graph.facebook.com/v18.0}
+      # Seconds before an outbound tool call is aborted.
+      MCP_HTTP_TIMEOUT_SEC: ${MCP_HTTP_TIMEOUT_SEC:-30}
+      # In-process auth (Go port of brief-auth-backend /api/auth) — talks to
+      # Keycloak directly.
+      KEYCLOAK_URL: ${KEYCLOAK_URL:-http://host.docker.internal:8080}
+      KEYCLOAK_REALM: ${KEYCLOAK_REALM:-brief-test-realm}
+      KEYCLOAK_CLIENT_ID: ${KEYCLOAK_CLIENT_ID:-briefuserapp}
+      KEYCLOAK_CLIENT_SECRET: ${KEYCLOAK_CLIENT_SECRET:-2E0BcpPjuhEHP51MoYrA3zGMrPLOZbUw}
+      # Dedicated Keycloak client for the Admin API (create-user / confirm-email).
+      KEYCLOAK_ADMIN_CLIENT_ID: ${KEYCLOAK_ADMIN_CLIENT_ID:-oumma-admin}
+      KEYCLOAK_ADMIN_CLIENT_SECRET: ${KEYCLOAK_ADMIN_CLIENT_SECRET:-aJ0KMvdhUOyAdKFUAG4ThhGW2koFfRzR}
+      KAFKA_BROKERS: host.docker.internal:9092
+      OLLAMA_KEEP_ALIVE: "-1"
+      # --- Token quota (monthly LLM budget per user; claim action emails the admin) ---
+      # Normal users' monthly token budget.
+      NORMAL_USER_TOKEN_QUOTA: ${NORMAL_USER_TOKEN_QUOTA:-20000}
+      # Designer users' monthly token budget (design chat + agent).
+      DESIGNER_TOKEN_QUOTA: ${DESIGNER_TOKEN_QUOTA:-50000}
+      # Recipient of the "claim quota" top-up requests.
+      QUOTA_CLAIM_EMAIL: ${QUOTA_CLAIM_EMAIL:-contact@brief-dz.com}
+      # Email delivery for activation links + quota claims.
+      # Priority: Keycloak realm SMTP settings (admin console) → these SMTP_*
+      # vars → HTTP gateway (ACTIVATION_EMAIL_GATEWAY) → container log.
+      # Locally, SMTP points at the Mailpit sink — read the mails in the
+      # inbox UI on http://localhost:8025.
+      # Web inbox reachable through the single platform port (:8095/mailpit/).
+      MAILPIT_WEB_URL: ${MAILPIT_WEB_URL:-http://mailpit:8025}
+      SMTP_HOST: ${SMTP_HOST:-mailpit}
+      SMTP_PORT: ${SMTP_PORT:-1025}
+      SMTP_FROM: ${SMTP_FROM:-oumma@brief-dz.com}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-false}
+      SMTP_SSL: ${SMTP_SSL:-false}
+      ACTIVATION_EMAIL_GATEWAY: ${ACTIVATION_EMAIL_GATEWAY:-}
+      ACTIVATION_EMAIL_FROM: ${ACTIVATION_EMAIL_FROM:-}
+      # In-process DMS document service (/dms-api) upload directory.
+      DMS_UPLOAD_DIR: /docs
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - shared
+      - internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Local mail sink (MailHog-style) for the SMTP configured in the Keycloak
+  # realm admin (Realm settings → Email). Inbox UI on http://localhost:8025.
+  # Activation + quota-claim emails land here instead of leaving the machine.
+  mailpit:
+    image: axllent/mailpit:latest
+    # No host ports: SMTP is used in-network by the oumma container
+    # (SMTP_HOST=mailpit); the web inbox is served on :8095/mailpit/.
+    networks:
+      - shared
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  ollama_data:
+
+networks:
+  shared:
+    external: true
+    name: docnet
+  internal:
+    driver: bridge

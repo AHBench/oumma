@@ -1,0 +1,163 @@
+app:
+    ai: null
+    can_be_launched: true
+    company: Brief
+    forms:
+        steps:
+            - fields: []
+              form_input: null
+              launchable: true
+              step_id: Verify Applicant
+    icon_key: card
+    icon_path: ""
+    launch_role_id: CustRelations
+    link: ""
+    name: Tool Pilot
+    pod_name: ""
+    process_description: ""
+    roles:
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: true
+          can_launch: true
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: CustRelations
+              role_name: CustRelations
+          role_id: CustRelations
+          role_name: CustRelations
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: Verify Applicant
+          search_items: []
+          view_access_roles: []
+    search_items: []
+    service_name: ""
+    shared_process_ids: []
+    task_groups: null
+    templates: []
+    user_id: 8c9fb880-38d9-48e1-8577-400850202679
+    username: fake_admin
+description: ""
+end_task_ids:
+    - end
+process_id: tool-pilot
+start_task_id: start
+tasks:
+    Check Docs:
+        description: Check Docs
+        group: Juriste
+        id: Check Docs
+        task_id: Check Docs
+        type: HUMAN
+    Notify Applicant:
+        config:
+            tool: mcp.telegram.send
+            tool_config:
+                bot_token: 123456:TEST-TOKEN
+                chat_id: "42"
+            tool_inputs:
+                message: $message
+        description: Notify the applicant via Telegram
+        id: Notify Applicant
+        type: SYSTEM
+    Ping:
+        config:
+            method: GET
+            url: https://x.test/ping
+        description: Ping
+        id: Ping
+        task_id: Ping
+        type: SYSTEM
+    Send Email Receipt:
+        config:
+            tool: mcp.gmail.send
+            tool_config:
+                api_key: gw-key-123
+                from: no-reply@oumma.local
+                gateway: https://mail.example.com/api/send
+            tool_inputs:
+                subject: $subject
+                to: $email
+        description: Send Email Receipt
+        id: Send Email Receipt
+        task_id: Send Email Receipt
+        type: SYSTEM
+    Verify Applicant:
+        description: Manual verification of the applicant
+        group: CustRelations
+        id: Verify Applicant
+        type: HUMAN
+    Webhook X:
+        config:
+            headers:
+                X-Api-Key: k
+            method: POST
+            url: https://api.example.com/hook
+        description: Webhook X
+        id: Webhook X
+        task_id: Webhook X
+        type: SYSTEM
+    end:
+        description: End
+        id: end
+        type: END
+    start:
+        description: Start
+        id: start
+        type: START
+topology:
+    - condition: always
+      from: start
+      to: Verify Applicant
+    - condition: always
+      from: Verify Applicant
+      to: Notify Applicant
+    - condition: always
+      from: Notify Applicant
+      to: end
+    - from: Verify Applicant
+      to: Send Email Receipt
+    - from: Verify Applicant
+      to: Check Docs
+    - condition: always
+      from: Check Docs
+      to: end
+    - from: Verify Applicant
+      to: Webhook X

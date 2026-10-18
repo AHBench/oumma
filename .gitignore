@@ -1,0 +1,10 @@
+docs/
+*.exe
+/dist
+# Local-only environment (real LLM endpoint/keys, local overrides)
+.env
+docker-compose.local.yml
+
+# Local-only working documents (never commit)
+AGENTIC_PLAN.md
+AUTH_BACKEND_PORT_PLAN.md

@@ -1,0 +1,1537 @@
+app:
+    ai:
+        embedding_model: test-embedding
+        model: test-model
+        process_desc: Duplicate test
+        prompts: []
+    can_be_launched: true
+    company: Brief
+    forms:
+        steps:
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Approver ou non si interdiction
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $manual_interdiction
+                  field_options:
+                    - "Yes"
+                    - "No"
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Décision Manuelle
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+              form_input:
+                manual_interdiction: $manual_interdiction
+              launchable: false
+              step_id: Decision Manuelle
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Réintegrer le dossier ou non
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $employee_approval
+                  field_options:
+                    - "Yes"
+                    - "No"
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Traitement Reponse Defavorable
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+              form_input:
+                employee_approval: $employee_approval
+              launchable: false
+              step_id: Reponse Defavorable
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Verification si les données sont bien intégrées
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $Verification Integration
+                  field_options:
+                    - "Yes"
+                    - "No"
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Verification Integration
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+              form_input:
+                Verification Integration: $Verification Integration
+              launchable: false
+              step_id: Verification Integration
+            - fields: []
+              form_input: ""
+              launchable: false
+              step_id: Controle Juriste
+            - fields: []
+              form_input: ""
+              launchable: false
+              step_id: Controle Responsable
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: true
+                  field_label: First Name
+                  field_max_length: null
+                  field_min_length: 3
+                  field_multple_choice: false
+                  field_name: $firstName_fr
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: true
+                  field_label: Last Name
+                  field_max_length: null
+                  field_min_length: 3
+                  field_multple_choice: false
+                  field_name: $lastName_fr
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: true
+                  field_label: First Name Arabic
+                  field_max_length: null
+                  field_min_length: 3
+                  field_multple_choice: false
+                  field_name: $firstName_ar
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: true
+                  field_label: Last Name Arabic
+                  field_max_length: null
+                  field_min_length: 3
+                  field_multple_choice: false
+                  field_name: $lastName_ar
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: true
+                  field_label: Date of Birth
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $birthDate
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: date
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Birth Country
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $country
+                  field_options:
+                    - Algeria
+                    - France
+                    - Germany
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Nin
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $nin
+                  field_options: []
+                  field_pattern: ^([0-9]{15})|([0-9]{20})$
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: true
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Accept Terms and Conditions
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $terms
+                  field_options: []
+                  field_pattern: ""
+                  field_required: false
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Terms and Conditions
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Account Type
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $acount_type_compte
+                  field_options:
+                    - Compte Courrant
+                    - Compte Epargne
+                    - Compte devise
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Account
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Account ledger
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $acount_gl_code
+                  field_options:
+                    - "220110"
+                    - "220140"
+                    - "220120"
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Account
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Activity Sector
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $acount_secteur_econpmique
+                  field_options:
+                    - '01 : Cultures agricoles et production végétale'
+                    - '02 : Sylviculture et exploitation forestière'
+                    - '03 : Pêche'
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Economic Activity
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: true
+                  field_header_display: false
+                  field_label: Activity Sub Sector
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: false
+                  field_name: $acount_secteur_economique_sec
+                  field_options:
+                    - 0111 - Culture de céréales (blé, orge…)
+                    - 0113 - Cultures maraîchères
+                    - 0210 - Exploitation forestière
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: Economic Activity
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: false
+                  user_can_add: false
+              form_input:
+                account:
+                    account_number: "0040023232120329293"
+                    acctype:
+                        label: Compte Epargne
+                        ledger: "220900"
+                    acount_accuracy: string
+                    acount_agence: "1001"
+                    acount_approbation_date: string
+                    acount_approbation_par: string
+                    acount_cif: string
+                    acount_compte_joint: string
+                    acount_cree_par: string
+                    acount_datecreation: string
+                    acount_departement: string
+                    acount_devision: string
+                    acount_gl_code: $acount_gl_code
+                    acount_secteur_economique_sec: $acount_secteur_economique_sec
+                    acount_secteur_econpmique: $acount_secteur_econpmique
+                    acount_solde_min_releve: string
+                    acount_type_compte: $acount_type_compte
+                accuracy: 0
+                assignee: $assignee
+                auto_interdiction: false
+                cif:
+                    agence: "1001"
+                    num_cif: "109203"
+                    type_cif: Persone Physique
+                core_logs:
+                    coreLogs: no log
+                    coreProblem: false
+                customer:
+                    address:
+                        country: string
+                        district: string
+                        state: string
+                        street: string
+                        zipCode: string
+                    birthDate: $birthDate
+                    birthPlace:
+                        country: $country
+                        district: string
+                        state: string
+                        street: string
+                        zipCode: string
+                    customerType:
+                        personCategory:
+                            label: string
+                        personType:
+                            label: string
+                        profession:
+                            profession: string
+                    documents:
+                        - document_category: string
+                          document_type: string
+                    firstName_ar: $firstName_ar
+                    firstName_fr: $firstName_fr
+                    interdictions:
+                        - flag: true
+                          interdiction_type: string
+                    lastName_ar: $lastName_ar
+                    lastName_fr: $lastName_fr
+                    nationality:
+                        label: string
+                    nin: $nin
+                    profession:
+                        profession: string
+                    prohibited: true
+                employee_approval: false
+                input_error: true
+                manager_approval: false
+                manual_interdiction: $manual_interdiction
+              launchable: true
+              step_id: Verification Dossier
+    icon_key: e-hospital
+    icon_path: myIcon
+    launch_role_id: CustRelations
+    link: http:///
+    name: Onboarding
+    pod_name: I
+    process_description: banking onboarding process
+    roles:
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: Juriste
+              role_name: Juriste
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: CustRelations
+              role_name: CustRelations
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: Managers
+              role_name: Managers
+          role_id: Managers
+          role_name: Managers
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: Decision Manuelle
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: Controle Responsable
+          search_items: []
+          view_access_roles:
+            - Juriste
+            - CustRelations
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: true
+          can_launch: true
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: Juriste
+              role_name: Juriste
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: CustRelations
+              role_name: CustRelations
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: Managers
+              role_name: Managers
+          role_id: CustRelations
+          role_name: CustRelations
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: Reponse Defavorable
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: Verification Integration
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: Verification Dossier
+          search_items: []
+          view_access_roles: []
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: Juriste
+              role_name: Juriste
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: CustRelations
+              role_name: CustRelations
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: Managers
+              role_name: Managers
+          role_id: Juriste
+          role_name: Juriste
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: Controle Juriste
+          search_items: []
+          view_access_roles:
+            - CustRelations
+            - Managers
+    search_items:
+        - field_label_ar: مهامي
+          field_label_en: My Tasks
+          field_label_fr: Mes Tâches
+          field_name: myTasks
+          field_type: menu_item
+        - field_label_ar: ملفاتي
+          field_label_en: My Dossiers
+          field_label_fr: Mes Dossiers
+          field_name: mesDossiers
+          field_type: menu_item
+        - field_label_ar: المستندات
+          field_label_en: Documents
+          field_label_fr: Documents
+          field_name: processDocuments
+          field_type: menu_item
+        - field_label_ar: مراجعة ملف
+          field_label_en: Audit a Dossier
+          field_label_fr: Auditer un dossier
+          field_name: requestInvestigation
+          field_type: menu_item
+        - field_label_ar: البحث عن ملف
+          field_label_en: Search Dossier
+          field_label_fr: Rechercher un Dossier
+          field_name: searchDossier
+          field_type: menu_item
+        - field_label_ar: إنشاء ملف
+          field_label_en: Create a dossier
+          field_label_fr: Créer un dossier
+          field_name: createForm
+          field_type: menu_item
+        - field_label_ar: تصميم العملية
+          field_label_en: Process Design
+          field_label_fr: Conception du processus
+          field_name: processDesign
+          field_type: menu_item
+        - field_label_ar: عام
+          field_label_en: General
+          field_label_fr: Général
+          field_name: General
+          field_type: tab
+        - field_label_ar: الحساب
+          field_label_en: Account
+          field_label_fr: Compte
+          field_name: Account
+          field_type: tab
+        - field_label_ar: النشاط الاقتصادي
+          field_label_en: Economic Activity
+          field_label_fr: Activité Économique
+          field_name: Economic Activity
+          field_type: tab
+        - field_label_ar: الشروط والأحكام
+          field_label_en: Terms and Conditions
+          field_label_fr: Conditions Générales
+          field_name: Terms and Conditions
+          field_type: tab
+        - field_label_ar: القرار اليدوي
+          field_label_en: Manual Decision
+          field_label_fr: Décision Manuelle
+          field_name: Décision Manuelle
+          field_type: tab
+        - field_label_ar: معالجة الرد السلبي
+          field_label_en: Unfavourable Response
+          field_label_fr: Traitement Réponse Défavorable
+          field_name: Traitement Reponse Defavorable
+          field_type: tab
+        - field_label_ar: التحقق من التكامل
+          field_label_en: Integration Verification
+          field_label_fr: Vérification d'Intégration
+          field_name: Verification Integration
+          field_type: tab
+        - field_label_ar: الاسم الأول
+          field_label_en: First Name
+          field_label_fr: Prénom
+          field_name: $firstName_fr
+          field_type: field_label
+        - field_label_ar: اللقب
+          field_label_en: Last Name
+          field_label_fr: Nom
+          field_name: $lastName_fr
+          field_type: field_label
+        - field_label_ar: الاسم الأول (بالعربية)
+          field_label_en: First Name (Arabic)
+          field_label_fr: Prénom (Arabe)
+          field_name: $firstName_ar
+          field_type: field_label
+        - field_label_ar: اللقب (بالعربية)
+          field_label_en: Last Name (Arabic)
+          field_label_fr: Nom (Arabe)
+          field_name: $lastName_ar
+          field_type: field_label
+        - field_label_ar: تاريخ الميلاد
+          field_label_en: Date of Birth
+          field_label_fr: Date de Naissance
+          field_name: $birthDate
+          field_type: field_label
+        - field_label_ar: بلد الميلاد
+          field_label_en: Birth Country
+          field_label_fr: Pays de Naissance
+          field_name: $country
+          field_type: field_label
+        - field_label_ar: الرقم الوطني
+          field_label_en: National ID
+          field_label_fr: Numéro National
+          field_name: $nin
+          field_type: field_label
+        - field_label_ar: قبول الشروط والأحكام
+          field_label_en: Accept Terms and Conditions
+          field_label_fr: Accepter les conditions générales
+          field_name: $terms
+          field_type: field_label
+        - field_label_ar: السماح أم لا في حال الحظر
+          field_label_en: Prohibit or not if prohibited
+          field_label_fr: Approuver ou non si interdiction
+          field_name: $manual_interdiction
+          field_type: field_label
+        - field_label_ar: إعادة إدراج الملف أم لا
+          field_label_en: Reintegrate the dossier or not
+          field_label_fr: Réintégrer le dossier ou non
+          field_name: $employee_approval
+          field_type: field_label
+        - field_label_ar: نتيجة التحقق من التكامل
+          field_label_en: Integration Verification Result
+          field_label_fr: Résultat de la Vérification d'Intégration
+          field_name: $Verification Integration
+          field_type: field_label
+        - field_label_ar: الرمز المحاسبي للحساب
+          field_label_en: Account GL Code
+          field_label_fr: Code PC du Compte
+          field_name: $acount_gl_code
+          field_type: field_label
+        - field_label_ar: نوع الحساب
+          field_label_en: Account Type
+          field_label_fr: Type de Compte
+          field_name: $acount_type_compte
+          field_type: field_label
+        - field_label_ar: القطاع الاقتصادي
+          field_label_en: Economic Sector
+          field_label_fr: Secteur Économique
+          field_name: $acount_secteur_econpmique
+          field_type: field_label
+        - field_label_ar: القطاع الاقتصادي (ثانوي)
+          field_label_en: Economic Sector (Secondary)
+          field_label_fr: Secteur Économique (Secondaire)
+          field_name: $acount_secteur_economique_sec
+          field_type: field_label
+        - field_label_ar: مهامك المعلقة لهذه العملية
+          field_label_en: Your pending tasks for this process
+          field_label_fr: Vos tâches en attente pour ce processus
+          field_name: hint.my_tasks
+          field_type: hint
+        - field_label_ar: الملفات المفتوحة لهذه العملية
+          field_label_en: Dossiers opened for this process
+          field_label_fr: Dossiers ouverts pour ce processus
+          field_name: hint.my_dossiers
+          field_type: hint
+        - field_label_ar: المستندات المشتركة على ملفات هذه العملية
+          field_label_en: Documents shared on this process' dossiers
+          field_label_fr: Documents partagés sur les dossiers de ce processus
+          field_name: hint.documents
+          field_type: hint
+        - field_label_ar: ابحث عن ملف وتدقيق خطوات سير عمله
+          field_label_en: Search a dossier and audit its workflow steps
+          field_label_fr: Rechercher un dossier et auditer les étapes de son workflow
+          field_name: hint.audit_dossier
+          field_type: hint
+        - field_label_ar: ابحث في جميع الملفات المحفوظة لهذه العملية
+          field_label_en: Search every saved dossier of this process
+          field_label_fr: Rechercher tous les dossiers enregistrés de ce processus
+          field_name: hint.search_dossier
+          field_type: hint
+        - field_label_ar: افتح ملفًا جديدًا لهذه العملية
+          field_label_en: Open a new dossier for this process
+          field_label_fr: Ouvrir un nouveau dossier pour ce processus
+          field_name: hint.new_dossier
+          field_type: hint
+        - field_label_ar: اسأل المساعد الذكي — يملأ النموذج ويُطلقه بعد تأكيذك
+          field_label_en: Ask the AI assistant — it fills the form and launches on your confirmation
+          field_label_fr: Demander à l'assistant IA — il remplit le formulaire et lance sur votre confirmation
+          field_name: hint.ai_assist
+          field_type: hint
+        - field_label_ar: رموز النموذج اللغوي المستهلكة في هذه العملية وتكلفتها
+          field_label_en: LLM tokens used by this process and their cost
+          field_label_fr: Jetons IA utilisés par ce processus et leur coût
+          field_name: hint.token_usage
+          field_type: hint
+        - field_label_ar: إعادة تحميل القائمة
+          field_label_en: Reload the list
+          field_label_fr: Recharger la liste
+          field_name: hint.refresh
+          field_type: hint
+        - field_label_ar: 'تصميم هذه العملية: المخطط، النماذج، الأدوار، عناصر البحث والإصدارات'
+          field_label_en: 'Design this process: diagram, forms, roles, search items and versions'
+          field_label_fr: 'Concevoir ce processus : diagramme, formulaires, rôles, éléments de recherche et versions'
+          field_name: hint.process_design
+          field_type: hint
+    service_name: ""
+    shared_process_ids: []
+    task_groups:
+        task_items:
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: name
+              item_description: Task Name
+              item_name: TaskName
+              order: 1
+              url_active: true
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: firstName_fr
+              item_description: Firstname
+              item_name: FistName
+              order: 2
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: lastName_fr
+              item_description: Lastname
+              item_name: LastName
+              order: 3
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: firstName_ar
+              item_description: Firstname Arabic
+              item_name: FirstNameAr
+              order: 4
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: lastName_ar
+              item_description: Lastname Arabic
+              item_name: LastNameAr
+              order: 5
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: Date
+              format_string: dd/MM/yyyy
+              item_column_name: date_of_birth
+              item_description: Birth Date
+              item_name: BirdDate
+              order: 6
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: account_number
+              item_description: Account Number
+              item_name: AccountNumber
+              order: 7
+              url_active: false
+        task_view:
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: firstName_fr
+              item_description: Firstname
+              item_name: FistName
+              order: 1
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: lastName_fr
+              item_description: Lastname
+              item_name: LastName
+              order: 1
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: firstName_ar
+              item_description: Firstname Arabic
+              item_name: FirstNameAr
+              order: 2
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: lastName_ar
+              item_description: Lastname Arabic
+              item_name: LastNameAr
+              order: 2
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: Date
+              format_string: dd/MM/yyyy
+              item_column_name: date_of_birth
+              item_description: Birth Date
+              item_name: BirdDate
+              order: 3
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: account_number
+              item_description: Account Number
+              item_name: AccountNumber
+              order: 4
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: acount_gl_code
+              item_description: Account Ledger
+              item_name: AccountLedger
+              order: 4
+              url_active: false
+            - atomic: true
+              detailed: false
+              format: String
+              format_string: None
+              item_column_name: acount_agence
+              item_description: Account Branch
+              item_name: AccountBranch
+              order: 5
+              url_active: false
+    templates: []
+    user_id: 8c9fb880-38d9-48e1-8577-400850202679
+    username: fake_admin
+description: |
+    Processus d'onboarding bancaire : vérification du dossier client, contrôle responsable, scoring d'interdiction automatique (DMN), décision manuelle éventuelle, appel aux APIs core banking, et vérification manuelle d'intégration. En cas de réponse défavorable, le dossier peut être résoumis ou rejeté définitivement.
+end_task_ids:
+    - end_success
+    - end_refuse
+process_id: onboarding
+start_task_id: start
+tasks:
+    Controle Juriste:
+        description: Contrôle du juriste sur la conformité légale du dossier
+        group: Juriste
+        id: Controle Juriste
+        input_schema:
+            properties:
+                account:
+                    type: object
+                customer:
+                    type: object
+                department:
+                    type: object
+                employee_approval:
+                    type: string
+                form_id:
+                    type: string
+            required:
+                - customer
+                - account
+                - employee_approval
+            type: object
+        output_schema:
+            properties:
+                juriste_approval:
+                    enum:
+                        - "Yes"
+                        - "No"
+                    type: string
+                juriste_comment:
+                    type: string
+            required:
+                - juriste_approval
+            type: object
+        type: HUMAN
+    Controle Responsable:
+        description: Contrôle du responsable d'agence sur le dossier soumis par l'employé
+        group: Managers
+        id: Controle Responsable
+        input_schema:
+            properties:
+                account:
+                    type: object
+                accuracy:
+                    type: number
+                customer:
+                    type: object
+                department:
+                    type: object
+                employee_approval:
+                    type: string
+                form_id:
+                    type: string
+                manager_approval:
+                    type: string
+                manager_comment:
+                    type: string
+            required:
+                - customer
+                - account
+                - employee_approval
+            type: object
+        output_schema:
+            properties:
+                manager_approval:
+                    enum:
+                        - "Yes"
+                        - "No"
+                    type: string
+                manager_comment:
+                    type: string
+            required:
+                - manager_approval
+            type: object
+        type: HUMAN
+    Core Banking APIs:
+        config:
+            headers:
+                X-Service: core-banking-apis
+            method: POST
+            url: https://httpbin.org/post
+        description: |
+            Appel aux APIs core banking (AccountAPI.testapicall) pour intégrer le client dans le système bancaire central — retourne les logs d'intégration
+        id: Core Banking APIs
+        input_schema:
+            properties:
+                account:
+                    type: object
+                cif:
+                    type: object
+                customer:
+                    type: object
+            required:
+                - customer
+                - account
+                - cif
+            type: object
+        output_schema:
+            properties:
+                core_logs:
+                    type: object
+            required:
+                - core_logs
+            type: object
+        type: SYSTEM
+    Decision Manuelle:
+        description: |
+            Décision manuelle du responsable sur l'interdiction lorsque le score automatique ne conclut pas à une interdiction — le responsable peut confirmer ou infirmer l'interdiction
+        group: Managers
+        id: Decision Manuelle
+        input_schema:
+            properties:
+                account:
+                    type: object
+                auto_interdiction:
+                    type: boolean
+                customer:
+                    type: object
+                department:
+                    type: object
+                form_id:
+                    type: string
+                manager_comment:
+                    type: string
+                manual_interdiction:
+                    type: string
+            required:
+                - customer
+                - account
+            type: object
+        output_schema:
+            properties:
+                auto_interdiction:
+                    type: boolean
+                manual_interdiction:
+                    enum:
+                        - Non
+                        - ""
+                    type: string
+            type: object
+        type: HUMAN
+    Reponse Defavorable:
+        description: |
+            Notification d'une réponse défavorable au client — l'employé peut proposer une re-soumission du dossier ou clore définitivement le dossier
+        group: CustRelations
+        id: Reponse Defavorable
+        input_schema:
+            properties:
+                account:
+                    type: object
+                customer:
+                    type: object
+                department:
+                    type: object
+                employee_approval:
+                    type: string
+                form_id:
+                    type: string
+                manager_approval:
+                    type: string
+                manager_comment:
+                    type: string
+            required:
+                - customer
+                - account
+            type: object
+        output_schema:
+            properties:
+                employee_approval:
+                    enum:
+                        - "Yes"
+                        - "No"
+                    type: string
+            required:
+                - employee_approval
+            type: object
+        type: HUMAN
+    Scoring Interdiction:
+        config:
+            headers:
+                X-Service: scoring-interdiction
+            method: POST
+            url: https://httpbin.org/post
+        description: |
+            Scoring d'interdiction par règle métier DMN (interdiction.dmn) — détermine automatiquement si le client est interdit bancaire
+        id: Scoring Interdiction
+        input_schema:
+            properties:
+                account:
+                    type: object
+                accuracy:
+                    type: number
+                customer:
+                    type: object
+            required:
+                - customer
+                - account
+                - accuracy
+            type: object
+        output_schema:
+            properties:
+                auto_interdiction:
+                    type: boolean
+            required:
+                - auto_interdiction
+            type: object
+        type: SYSTEM
+    Verification Dossier:
+        config:
+            description: desc typed in dock window
+            group: CustRelations
+            id: Verification Dossier
+            input_schema:
+                properties:
+                    account:
+                        type: object
+                    core_logs:
+                        type: object
+                    customer:
+                        type: object
+                    department:
+                        type: object
+                    form_id:
+                        type: string
+                required:
+                    - customer
+                    - account
+                type: object
+            output_schema:
+                properties:
+                    employee_approval:
+                        enum:
+                            - "Yes"
+                            - "No"
+                        type: string
+                required:
+                    - employee_approval
+                type: object
+            type: HUMAN
+        description: desc typed in dock window
+        group: CustRelations
+        id: Verification Dossier
+        input_schema:
+            properties:
+                account:
+                    type: object
+                core_logs:
+                    type: object
+                customer:
+                    type: object
+                department:
+                    type: object
+                form_id:
+                    type: string
+            required:
+                - customer
+                - account
+            type: object
+        output_schema:
+            properties:
+                employee_approval:
+                    enum:
+                        - "Yes"
+                        - "No"
+                    type: string
+            required:
+                - employee_approval
+            type: object
+        type: HUMAN
+    Verification Integration:
+        description: |
+            Vérification manuelle du résultat de l'intégration core banking par le chargé de clientèle — validation finale avant clôture du dossier
+        group: CustRelations
+        id: Verification Integration
+        input_schema:
+            properties:
+                account:
+                    type: object
+                accuracy:
+                    type: number
+                core_logs:
+                    type: object
+                customer:
+                    type: object
+                department:
+                    type: object
+                form_id:
+                    type: string
+                manager_approval:
+                    type: string
+                manager_comment:
+                    type: string
+            required:
+                - customer
+                - account
+                - core_logs
+            type: object
+        type: HUMAN
+    Verification Interdiction:
+        config:
+            headers:
+                X-Service: verification-interdiction
+            method: POST
+            url: https://httpbin.org/post
+        description: |
+            Vérification de l'interdiction bancaire via l'API AccountAPI (opération checkInterdiction) — retourne un score de précision (accuracy)
+        id: Verification Interdiction
+        input_schema:
+            properties:
+                account:
+                    type: object
+                accuracy:
+                    type: number
+                customer:
+                    type: object
+            required:
+                - customer
+                - account
+            type: object
+        output_schema:
+            properties:
+                accuracy:
+                    type: number
+            type: object
+        type: SYSTEM
+    end_refuse:
+        description: Fin du processus — dossier définitivement refusé
+        id: end_refuse
+        type: END
+    end_success:
+        description: Fin normale du processus — client intégré avec succès
+        id: end_success
+        type: END
+    start:
+        description: Démarrage du processus d'onboarding bancaire
+        id: start
+        type: START
+topology:
+    - condition: always
+      from: start
+      to: Verification Dossier
+    - condition: always
+      fork: true
+      from: Verification Dossier
+      to: Controle Responsable
+    - condition: always
+      fork: true
+      from: Verification Dossier
+      to: Controle Juriste
+    - condition: |
+        le responsable et le juriste approuvent tous les deux le dossier (manager_approval est "Yes" ET juriste_approval est "Yes")
+      join: and
+      join_from:
+        - Controle Responsable
+        - Controle Juriste
+      to: Verification Interdiction
+    - condition: |
+        au moins l'un des contrôleurs rejette le dossier (manager_approval est "No" OU juriste_approval est "No")
+      join: and
+      join_from:
+        - Controle Responsable
+        - Controle Juriste
+      to: Reponse Defavorable
+    - condition: always
+      from: Verification Interdiction
+      to: Scoring Interdiction
+    - condition: |
+        le scoring automatique conclut à une interdiction (auto_interdiction est true) — réponse défavorable directe, sans décision manuelle
+      from: Scoring Interdiction
+      to: Reponse Defavorable
+    - condition: |
+        le scoring automatique ne conclut pas à une interdiction (auto_interdiction est false) et le score est faible — une décision manuelle est nécessaire
+      from: Scoring Interdiction
+      to: Decision Manuelle
+    - condition: |
+        la décision manuelle est "Yes" — le responsable valide, appel des API core banking et poursuite de l'onboarding
+      from: Decision Manuelle
+      to: Core Banking APIs
+    - condition: |
+        la décision manuelle est "No" — le client ne peut pas être onboardé, réponse défavorable
+      from: Decision Manuelle
+      to: Reponse Defavorable
+    - condition: always
+      from: Core Banking APIs
+      to: Verification Integration
+    - condition: always
+      from: Verification Integration
+      to: end_success
+    - condition: |
+        l'employé choisit de re-soumettre le dossier après correction (employee_approval est "Yes") — retour à la vérification du dossier
+      from: Reponse Defavorable
+      to: Verification Dossier
+    - condition: |
+        l'employé confirme le rejet définitif du dossier (employee_approval est "No")
+      from: Reponse Defavorable
+      to: end_refuse

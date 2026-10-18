@@ -1,0 +1,3119 @@
+app:
+    ai: null
+    can_be_launched: true
+    company: Brief
+    forms:
+        steps:
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: evaluation_du_risque
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: classement_judiciaire
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: dossier_incomplet
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: evaluation_expertise
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: reception_expertise_fraude
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: absence_de_fraude
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: soupcon_de_fraude
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: notification_client
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: reception_dossier_expertise
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: fraude_averee
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: diligente_enquete
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: envoi_selection_expert
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: true
+              step_id: saisie_dossier_sinistre
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: approbation_gestionnaire
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude_valide
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude_valide
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: dossier_incomplet
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: dossier_incomplet
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: traitement_paiement
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: client
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: client
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: fraude
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: fraude
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: checkbox
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: department
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: department
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: compagnie_assurance
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: compagnie_assurance
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: declaration_de_fraude
+    icon_key: e-umbrella-rain
+    icon_path: ""
+    launch_role_id: EMPLOYEE_AGENCE
+    link: ""
+    name: Declaration Sinistre
+    pod_name: ""
+    process_description: ""
+    roles:
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: true
+          can_launch: true
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: EMPLOYEE_AGENCE
+              role_name: EMPLOYEE_AGENCE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: GESTIONNAIRE_CENTRALE
+              role_name: GESTIONNAIRE_CENTRALE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: COMITE_EVALUATION
+              role_name: COMITE_EVALUATION
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EXPERT
+              role_name: EXPERT
+          role_id: EMPLOYEE_AGENCE
+          role_name: EMPLOYEE_AGENCE
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: envoi_selection_expert
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: notification_client
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: traitement_paiement
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: dossier_incomplet
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: true
+              initial_task: false
+              requires_decision_form: true
+              task_name: saisie_dossier_sinistre
+          search_items: []
+          view_access_roles:
+            - GESTIONNAIRE_CENTRALE
+            - COMITE_EVALUATION
+            - EXPERT
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EMPLOYEE_AGENCE
+              role_name: EMPLOYEE_AGENCE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: GESTIONNAIRE_CENTRALE
+              role_name: GESTIONNAIRE_CENTRALE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: COMITE_EVALUATION
+              role_name: COMITE_EVALUATION
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EXPERT
+              role_name: EXPERT
+          role_id: GESTIONNAIRE_CENTRALE
+          role_name: GESTIONNAIRE_CENTRALE
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: fraude_averee
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: absence_de_fraude
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: approbation_gestionnaire
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: soupcon_de_fraude
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: classement_judiciaire
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: declaration_de_fraude
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: diligente_enquete
+          search_items: []
+          view_access_roles:
+            - EMPLOYEE_AGENCE
+            - COMITE_EVALUATION
+            - EXPERT
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EMPLOYEE_AGENCE
+              role_name: EMPLOYEE_AGENCE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: GESTIONNAIRE_CENTRALE
+              role_name: GESTIONNAIRE_CENTRALE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: COMITE_EVALUATION
+              role_name: COMITE_EVALUATION
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EXPERT
+              role_name: EXPERT
+          role_id: COMITE_EVALUATION
+          role_name: COMITE_EVALUATION
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: evaluation_du_risque
+          search_items: []
+          view_access_roles:
+            - EMPLOYEE_AGENCE
+            - GESTIONNAIRE_CENTRALE
+            - EXPERT
+        - apply_dept_filter: true
+          authorised_search_in_roles: []
+          can_edit_initial_form: false
+          can_launch: false
+          doc_roles:
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: EMPLOYEE_AGENCE
+              role_name: EMPLOYEE_AGENCE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: GESTIONNAIRE_CENTRALE
+              role_name: GESTIONNAIRE_CENTRALE
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+              role_id: COMITE_EVALUATION
+              role_name: COMITE_EVALUATION
+            - permissions:
+                - read
+                - write
+                - view
+                - share
+                - delete
+              role_id: EXPERT
+              role_name: EXPERT
+          role_id: EXPERT
+          role_name: EXPERT
+          role_tasks:
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: reception_expertise_fraude
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: reception_dossier_expertise
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: evaluation_expertise
+          search_items: []
+          view_access_roles:
+            - EMPLOYEE_AGENCE
+            - GESTIONNAIRE_CENTRALE
+            - COMITE_EVALUATION
+    search_items:
+        - field_label_ar: مهامي
+          field_label_en: My Tasks
+          field_label_fr: Mes Tâches
+          field_name: myTasks
+          field_type: menu_item
+        - field_label_ar: ملفاتي
+          field_label_en: My Dossiers
+          field_label_fr: Mes Dossiers
+          field_name: mesDossiers
+          field_type: menu_item
+        - field_label_ar: المستندات
+          field_label_en: Documents
+          field_label_fr: Documents
+          field_name: processDocuments
+          field_type: menu_item
+        - field_label_ar: مراجعة ملف
+          field_label_en: Audit a Dossier
+          field_label_fr: Auditer un dossier
+          field_name: requestInvestigation
+          field_type: menu_item
+        - field_label_ar: البحث عن ملف
+          field_label_en: Search Dossier
+          field_label_fr: Rechercher un Dossier
+          field_name: searchDossier
+          field_type: menu_item
+        - field_label_ar: إنشاء ملف
+          field_label_en: Create a dossier
+          field_label_fr: Créer un dossier
+          field_name: createForm
+          field_type: menu_item
+        - field_label_ar: تصميم العملية
+          field_label_en: Process Design
+          field_label_fr: Conception du processus
+          field_name: processDesign
+          field_type: menu_item
+        - field_label_ar: عام
+          field_label_en: General
+          field_label_fr: Général
+          field_name: General
+          field_type: tab
+        - field_label_ar: شركة التأمين
+          field_label_en: Insurance company
+          field_label_fr: Compagnie d'assurance
+          field_name: compagnie_assurance
+          field_type: field_label
+        - field_label_ar: العميل
+          field_label_en: Client
+          field_label_fr: Client
+          field_name: client
+          field_type: field_label
+        - field_label_ar: الاحتيال
+          field_label_en: Fraud
+          field_label_fr: Fraude
+          field_name: fraude
+          field_type: field_label
+        - field_label_ar: القسم
+          field_label_en: Department
+          field_label_fr: Service
+          field_name: department
+          field_type: field_label
+        - field_label_ar: احتيال مؤكد
+          field_label_en: Fraud confirmed
+          field_label_fr: Fraude confirmée
+          field_name: fraude_valide
+          field_type: field_label
+        - field_label_ar: ملف غير مكتمل
+          field_label_en: Incomplete file
+          field_label_fr: Dossier incomplet
+          field_name: dossier_incomplet
+          field_type: field_label
+        - field_label_ar: مهامك المعلقة لهذه العملية
+          field_label_en: Your pending tasks for this process
+          field_label_fr: Vos tâches en attente pour ce processus
+          field_name: hint.my_tasks
+          field_type: hint
+        - field_label_ar: الملفات المفتوحة لهذه العملية
+          field_label_en: Dossiers opened for this process
+          field_label_fr: Dossiers ouverts pour ce processus
+          field_name: hint.my_dossiers
+          field_type: hint
+        - field_label_ar: المستندات المشتركة على ملفات هذه العملية
+          field_label_en: Documents shared on this process' dossiers
+          field_label_fr: Documents partagés sur les dossiers de ce processus
+          field_name: hint.documents
+          field_type: hint
+        - field_label_ar: ابحث عن ملف وتدقيق خطوات سير عمله
+          field_label_en: Search a dossier and audit its workflow steps
+          field_label_fr: Rechercher un dossier et auditer les étapes de son workflow
+          field_name: hint.audit_dossier
+          field_type: hint
+        - field_label_ar: ابحث في جميع الملفات المحفوظة لهذه العملية
+          field_label_en: Search every saved dossier of this process
+          field_label_fr: Rechercher tous les dossiers enregistrés de ce processus
+          field_name: hint.search_dossier
+          field_type: hint
+        - field_label_ar: افتح ملفًا جديدًا لهذه العملية
+          field_label_en: Open a new dossier for this process
+          field_label_fr: Ouvrir un nouveau dossier pour ce processus
+          field_name: hint.new_dossier
+          field_type: hint
+        - field_label_ar: اسأل المساعد الذكي — يملأ النموذج ويُطلقه بعد تأكيذك
+          field_label_en: Ask the AI assistant — it fills the form and launches on your confirmation
+          field_label_fr: Demander à l'assistant IA — il remplit le formulaire et lance sur votre confirmation
+          field_name: hint.ai_assist
+          field_type: hint
+        - field_label_ar: رموز النموذج اللغوي المستهلكة في هذه العملية وتكلفتها
+          field_label_en: LLM tokens used by this process and their cost
+          field_label_fr: Jetons IA utilisés par ce processus et leur coût
+          field_name: hint.token_usage
+          field_type: hint
+        - field_label_ar: إعادة تحميل القائمة
+          field_label_en: Reload the list
+          field_label_fr: Recharger la liste
+          field_name: hint.refresh
+          field_type: hint
+        - field_label_ar: 'تصميم هذه العملية: المخطط، النماذج، الأدوار، عناصر البحث والإصدارات'
+          field_label_en: 'Design this process: diagram, forms, roles, search items and versions'
+          field_label_fr: 'Concevoir ce processus : diagramme, formulaires, rôles, éléments de recherche et versions'
+          field_name: hint.process_design
+          field_type: hint
+    service_name: ""
+    shared_process_ids: []
+    task_groups: null
+    templates: []
+    user_id: 8c9fb880-38d9-48e1-8577-400850202679
+    username: fake_admin
+description: Claim declaration flow
+process_id: declaration-sinistre
+tasks:
+    - description: Initialisation du processus de déclaration de sinistre
+      task_id: start
+      type: START
+    - description: Saisie du dossier sinistre par l'employé d'agence
+      group: EMPLOYEE_AGENCE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"}
+          },
+          "required": ["client", "compagnie_assurance"]
+        }
+      task_id: saisie_dossier_sinistre
+      type: HUMAN
+    - description: Analyse initiale du soupçon de fraude par le gestionnaire central
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: soupcon_de_fraude
+      type: HUMAN
+    - description: Déclaration formelle de fraude et qualification de l'état du dossier
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "fraude_valide":    {"type": "string", "enum": ["Oui", "Non"]},
+            "dossier_incomplet":{"type": "string", "enum": ["Oui", "Non"]}
+          },
+          "required": ["fraude_valide", "dossier_incomplet"]
+        }
+      task_id: declaration_de_fraude
+      type: HUMAN
+    - description: Notification au client que le dossier est incomplet et demande de compléments
+      group: EMPLOYEE_AGENCE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: dossier_incomplet
+      type: HUMAN
+    - description: Diligenter une enquête et coordination avec d'autres organismes
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: diligente_enquete
+      type: HUMAN
+    - description: Réception et analyse du rapport d'expertise fraude par l'expert
+      group: EXPERT
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "fraude_valide": {"type": "string", "enum": ["Oui", "Non"]}
+          },
+          "required": ["fraude_valide"]
+        }
+      task_id: reception_expertise_fraude
+      type: HUMAN
+    - description: Traitement du dossier suite à fraude avérée par le gestionnaire central
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: fraude_averee
+      type: HUMAN
+    - description: Classement du dossier et engagement de poursuites judiciaires
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: classement_judiciaire
+      type: HUMAN
+    - description: Fin du processus – dossier classé pour fraude avérée
+      task_id: end_fraud
+      type: END
+    - description: Constatation de l'absence de fraude et préparation du dossier d'indemnisation
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: absence_de_fraude
+      type: HUMAN
+    - description: Évaluation du risque global du sinistre par le comité d'évaluation
+      group: COMITE_EVALUATION
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: evaluation_du_risque
+      type: HUMAN
+    - description: Sélection de l'expert et envoi du dossier pour expertise
+      group: EMPLOYEE_AGENCE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: envoi_selection_expert
+      type: HUMAN
+    - description: Réception du dossier d'expertise par l'expert
+      group: EXPERT
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "compagnie_assurance": {"type": "string"}
+          }
+        }
+      task_id: reception_dossier_expertise
+      type: HUMAN
+    - description: Évaluation complète du dossier d'expertise par l'expert
+      group: EXPERT
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: evaluation_expertise
+      type: HUMAN
+    - description: Approbation finale par le gestionnaire central avant traitement financier
+      group: GESTIONNAIRE_CENTRALE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: approbation_gestionnaire
+      type: HUMAN
+    - config:
+        headers:
+            X-Service: validation-sys
+        method: POST
+        url: https://httpbin.org/post
+      description: Validation automatique du dossier par le système interne ValidationSys
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"}
+          },
+          "required": ["client", "compagnie_assurance"]
+        }
+      output_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "validation_status":  {"type": "string", "enum": ["approved", "rejected"]},
+            "validation_details": {"type": "object"}
+          },
+          "required": ["validation_status"]
+        }
+      task_id: validation_sys
+      type: SYSTEM
+    - description: Traitement et exécution du paiement de l'indemnisation au client
+      group: EMPLOYEE_AGENCE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: traitement_paiement
+      type: HUMAN
+    - description: Notification finale du client sur le résultat de sa déclaration de sinistre
+      group: EMPLOYEE_AGENCE
+      input_schema: |
+        {
+          "type": "object",
+          "properties": {
+            "client":              {"type": "object"},
+            "fraude":              {"type": "boolean"},
+            "fraude_valide":       {"type": "string"},
+            "dossier_incomplet":   {"type": "string"},
+            "compagnie_assurance": {"type": "string"},
+            "department":          {"type": "string"}
+          }
+        }
+      task_id: notification_client
+      type: HUMAN
+    - description: Fin du processus – sinistre traité et client notifié
+      task_id: end
+      type: END
+topology:
+    - from: start
+      to: saisie_dossier_sinistre
+    - condition: le dossier présente un risque de fraude (fraude est vrai)
+      from: saisie_dossier_sinistre
+      to: soupcon_de_fraude
+    - condition: le dossier ne présente pas de risque de fraude (fraude est faux)
+      from: saisie_dossier_sinistre
+      to: envoi_selection_expert
+    - from: soupcon_de_fraude
+      to: declaration_de_fraude
+    - condition: le dossier est incomplet (dossier_incomplet est Oui)
+      from: declaration_de_fraude
+      to: dossier_incomplet
+    - condition: le dossier est complet (dossier_incomplet est Non)
+      from: declaration_de_fraude
+      to: diligente_enquete
+    - condition: le client a fourni les pièces manquantes, retour à la saisie du dossier
+      from: dossier_incomplet
+      to: saisie_dossier_sinistre
+    - from: diligente_enquete
+      to: reception_expertise_fraude
+    - condition: la fraude est confirmée par l'expert (fraude_valide est Oui)
+      from: reception_expertise_fraude
+      to: fraude_averee
+    - condition: la fraude est infirmée par l'expert (fraude_valide est Non)
+      from: reception_expertise_fraude
+      to: absence_de_fraude
+    - from: fraude_averee
+      to: classement_judiciaire
+    - from: classement_judiciaire
+      to: end_fraud
+    - from: absence_de_fraude
+      to: evaluation_du_risque
+    - from: evaluation_du_risque
+      to: approbation_gestionnaire
+    - from: envoi_selection_expert
+      to: reception_dossier_expertise
+    - from: reception_dossier_expertise
+      to: evaluation_expertise
+    - from: evaluation_expertise
+      to: approbation_gestionnaire
+    - from: approbation_gestionnaire
+      to: validation_sys
+    - from: validation_sys
+      to: traitement_paiement
+    - from: traitement_paiement
+      to: notification_client
+    - from: notification_client
+      to: end
