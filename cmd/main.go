@@ -405,7 +405,9 @@ func main() {
 	// Every design write (UI or AI chat) refreshes the single pending design
 	// version; the designer deploys or discards it from the versions tab.
 	pcStore.SetOnChanged(func(processID string) {
-		go designSvc.SnapshotPending(context.Background(), processID, "designer")
+		// Synchronous on purpose: the snapshot sequence number is taken at
+		// mutation time; SnapshotPending itself does the work in a goroutine.
+		designSvc.SnapshotPending(context.Background(), processID, "designer")
 	})
 	// Version-aware lookups: running instances resolve permissions and form
 	// steps against the design version they were launched with (the design

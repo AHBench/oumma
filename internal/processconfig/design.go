@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"time"
 
 	"gopkg.in/yaml.v3"
@@ -79,6 +81,13 @@ type DesignService struct {
 	llm     LLMAsker
 	log     *slog.Logger
 	states  StateLister
+	// Snapshot ordering: design mutations fire async pending-snapshots;
+	// the sequence number taken at mutation time + the mutex make the
+	// pending row converge on the LATEST mutation (a stale, out-of-order
+	// snapshot is dropped instead of resurrecting deleted steps).
+	snapMu   sync.Mutex
+	snapSeq  int64
+	lastSnap map[string]int64
 	// reviewStore, when set, keeps the AI design-review exchanges in the
 	// process's design history and feeds recent reviews back into the
 	// reviewer context.
@@ -99,7 +108,7 @@ func (d *DesignService) SetReviewStore(rs repository.DesignReviewStore) {
 }
 
 func NewDesignService(store *Store, designs DesignRepo, reg DefinitionRegistrar, llm LLMAsker, log *slog.Logger) *DesignService {
-	return &DesignService{store: store, designs: designs, reg: reg, llm: llm, log: log}
+	return &DesignService{store: store, designs: designs, reg: reg, llm: llm, log: log, lastSnap: make(map[string]int64)}
 }
 
 // SetStateLister wires the instance store for the delete guard.
@@ -1349,6 +1358,10 @@ func (d *DesignService) deployDesign(w http.ResponseWriter, r *http.Request) {
 		dv = d
 	} else {
 		// Default: deploy the single pending (unconfirmed) version.
+		// Re-snapshot the designer's CURRENT document first so the deploy
+		// always reflects the latest mutations (a stale async pending row
+		// can never deploy a step that was just deleted).
+		d.syncPendingNow(r.Context(), req.ProcessID)
 		p, err := d.designs.GetPendingDesign(r.Context(), req.ProcessID)
 		if err != nil {
 			writeErr(w, http.StatusInternalServerError, err.Error())
@@ -1739,6 +1752,28 @@ func (d *DesignService) liveDocHasApp(processID string) bool {
 // e.g. right after a deploy or a discard-restore — no pending version is
 // kept: unconfirmed changes are exactly the diff against the deploy.
 func (d *DesignService) SnapshotPending(ctx context.Context, processID string, createdBy string) {
+	// Sequence number at MUTATION time: snapshots that run out of order
+	// (goroutine scheduling) are dropped, so the pending row always
+	// converges on the latest mutation.
+	seq := atomic.AddInt64(&d.snapSeq, 1)
+	go d.takeSnapshot(context.Background(), processID, createdBy, seq)
+}
+
+// syncPendingNow snapshots the live store document synchronously — used by
+// deploy so a just-deleted step can never be resurrected by a queued
+// stale snapshot or a stale pending row.
+func (d *DesignService) syncPendingNow(ctx context.Context, processID string) {
+	seq := atomic.AddInt64(&d.snapSeq, 1)
+	d.takeSnapshot(ctx, processID, "deploy", seq)
+}
+
+func (d *DesignService) takeSnapshot(ctx context.Context, processID, createdBy string, seq int64) {
+	d.snapMu.Lock()
+	defer d.snapMu.Unlock()
+	if seq < d.lastSnap[processID] {
+		return // a newer mutation already snapshotted this process
+	}
+	d.lastSnap[processID] = seq
 	doc, err := d.store.DocumentJSON(processID)
 	if err != nil {
 		d.log.Warn("pending snapshot: read document failed", "processId", processID, "error", err)

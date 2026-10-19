@@ -97,14 +97,6 @@ tasks:
         description: Notify the applicant via Telegram
         id: Notify Applicant
         type: SYSTEM
-    Ping:
-        config:
-            method: GET
-            url: https://x.test/ping
-        description: Ping
-        id: Ping
-        task_id: Ping
-        type: SYSTEM
     Send Email Receipt:
         config:
             tool: mcp.gmail.send
@@ -119,12 +111,6 @@ tasks:
         id: Send Email Receipt
         task_id: Send Email Receipt
         type: SYSTEM
-    TestStep:
-        description: TestStep
-        group: CustRelations
-        id: TestStep
-        task_id: TestStep
-        type: HUMAN
     Verify Applicant:
         description: Manual verification of the applicant
         group: CustRelations
