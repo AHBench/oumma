@@ -96,6 +96,7 @@ type InMemoryStore struct {
 	trackSteps  []*domain.ProcessTrackStep
 	histories   []*domain.TaskHistory
 	designs     *memoryDesigns
+	reviews     *memoryDesignReviewStore
 }
 
 func NewInMemoryStore() *InMemoryStore {
@@ -104,7 +105,16 @@ func NewInMemoryStore() *InMemoryStore {
 		definitions: make(map[string]*domain.ProcessDefinition),
 		checkpoints: make(map[string]*domain.ProcessCheckpoint),
 		histories:   make([]*domain.TaskHistory, 0),
+		reviews:     newMemoryDesignReviews(),
 	}
+}
+
+// Design review history (delegated to the embedded store).
+func (s *InMemoryStore) SaveDesignReview(ctx context.Context, r *DesignReview) error {
+	return s.reviews.SaveDesignReview(ctx, r)
+}
+func (s *InMemoryStore) ListDesignReviews(ctx context.Context, processID string, limit int) ([]*DesignReview, error) {
+	return s.reviews.ListDesignReviews(ctx, processID, limit)
 }
 
 func (s *InMemoryStore) SaveState(_ context.Context, state *domain.ExecutionState) error {

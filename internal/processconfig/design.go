@@ -9,6 +9,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"gopkg.in/yaml.v3"
 
@@ -78,6 +79,10 @@ type DesignService struct {
 	llm     LLMAsker
 	log     *slog.Logger
 	states  StateLister
+	// reviewStore, when set, keeps the AI design-review exchanges in the
+	// process's design history and feeds recent reviews back into the
+	// reviewer context.
+	reviewStore repository.DesignReviewStore
 	// quotaGuard, when set, refuses LLM-consuming design calls (ask) with a
 	// 429 when the caller's monthly token budget is exhausted.
 	quotaGuard func(w http.ResponseWriter, r *http.Request, claims *handler.AuthClaims) bool
@@ -86,6 +91,11 @@ type DesignService struct {
 // SetQuotaGuard wires the token-quota enforcement for the design chat.
 func (d *DesignService) SetQuotaGuard(fn func(w http.ResponseWriter, r *http.Request, claims *handler.AuthClaims) bool) {
 	d.quotaGuard = fn
+}
+
+// SetReviewStore wires the design-history store for AI reviews.
+func (d *DesignService) SetReviewStore(rs repository.DesignReviewStore) {
+	d.reviewStore = rs
 }
 
 func NewDesignService(store *Store, designs DesignRepo, reg DefinitionRegistrar, llm LLMAsker, log *slog.Logger) *DesignService {
@@ -101,6 +111,7 @@ func (d *DesignService) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/management/design/discard", d.designGuard(d.discardDesign))
 	mux.HandleFunc("GET /api/management/design/versions", d.designGuard(d.listDesigns))
 	mux.HandleFunc("GET /api/management/design/{processId}", d.designGuard(d.getDesign))
+	mux.HandleFunc("GET /api/management/design/{processId}/ai-reviews", d.designGuard(d.listAiReviews))
 	mux.HandleFunc("POST /api/management/design/ask", d.designGuard(d.askDesign))
 	mux.HandleFunc("POST /api/management/design/{processId}/sync-roles", d.designGuard(d.syncRoles))
 	mux.HandleFunc("POST /api/management/design/{processId}/sync-forms", d.designGuard(d.syncForms))
@@ -1837,6 +1848,24 @@ func (d *DesignService) getDesign(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// --- GET /api/management/design/{processId}/ai-reviews -----------------------
+
+// listAiReviews returns the process's AI design-review history (newest
+// first) — the prompts and verdicts kept for the design history.
+func (d *DesignService) listAiReviews(w http.ResponseWriter, r *http.Request) {
+	pid := r.PathValue("processId")
+	reviews := []*repository.DesignReview{}
+	if d.reviewStore != nil {
+		lst, err := d.reviewStore.ListDesignReviews(r.Context(), pid, 20)
+		if err != nil {
+			writeErr(w, http.StatusInternalServerError, err.Error())
+			return
+		}
+		reviews = lst
+	}
+	writeJSON(w, http.StatusOK, map[string]any{"reviews": reviews})
+}
+
 // --- POST /api/management/design/ask ----------------------------------------
 
 type designChatMessage struct {
@@ -1868,17 +1897,26 @@ func (d *DesignService) askDesign(w http.ResponseWriter, r *http.Request) {
 	system := designSystemPrompt(lang)
 
 	var user strings.Builder
+	activeVersion := 0
 	if req.ProcessID != "" {
-		if raw, err := d.store.FileContent(req.ProcessID); err == nil {
-			fmt.Fprintf(&user, "Current full YAML of process %q (engine + app sections):\n```yaml\n%s\n```\n", req.ProcessID, raw)
-		} else if d.reg != nil {
-			// Engine-only template (no app: section file): serialize the
-			// registered definition so the LLM has the real tasks/topology.
-			if def, err := d.reg.GetDefinition(r.Context(), req.ProcessID); err == nil && def != nil {
-				if y, merr := definitionToYAML(def); merr == nil {
-					fmt.Fprintf(&user, "Current engine design of process %q (no app section yet):\n```yaml\n%s\n```\n", req.ProcessID, y)
-				}
+		// Harness: ground the reviewer in THIS process, anchored on the
+		// deployed (active) version, with the working copy and history.
+		user.WriteString("PROCESS CONTEXT (ground every answer in this, per deployed version):\n")
+		if activeBytes, v, err := d.designs.GetActiveDesign(r.Context(), req.ProcessID); err == nil && len(activeBytes) > 0 {
+			activeVersion = v
+			semver := ""
+			if dv, e2 := d.designs.GetDesign(r.Context(), req.ProcessID, v); e2 == nil && dv != nil {
+				semver = dv.Semver
 			}
+			fmt.Fprintf(&user, "Deployed (active) version: v%d (semver %s) — this is what runs in production.\n", v, semver)
+			if def, perr := repository.DesignOf(activeBytes); perr == nil {
+				if y, merr := definitionToYAML(def); merr == nil {
+					fmt.Fprintf(&user, "Deployed definition (engine view):\n```yaml\n%s\n```\n", y)
+			}
+			}
+		}
+		if p, err := d.designs.GetPendingDesign(r.Context(), req.ProcessID); err == nil && p != nil {
+			fmt.Fprintf(&user, "Working (pending, not yet deployed) version: v%d — the designer is editing this:\n```yaml\n%s\n```\n", p.Version, string(p.Design))
 		}
 		if versions, err := d.designs.ListDesigns(r.Context(), req.ProcessID); err == nil && len(versions) > 0 {
 			user.WriteString("Saved design versions (newest first):\n")
@@ -1890,6 +1928,15 @@ func (d *DesignService) askDesign(w http.ResponseWriter, r *http.Request) {
 				fmt.Fprintf(&user, "  v%d [%s] %s %s\n", dv.Version, dv.Status, dv.CreatedAt.Format("2006-01-02 15:04"), extra)
 			}
 			user.WriteString("\n")
+		}
+		if d.reviewStore != nil {
+			if reviews, rerr := d.reviewStore.ListDesignReviews(r.Context(), req.ProcessID, 3); rerr == nil && len(reviews) > 0 {
+				user.WriteString("Previous AI design reviews for this process (newest first — stay consistent with them):\n")
+				for _, rv := range reviews {
+					fmt.Fprintf(&user, "  [%s, deployed v%d] Q: %s\n  A: %s\n", rv.CreatedAt.Format("2006-01-02 15:04"), rv.DesignVersion, clipRunes(rv.Prompt, 300), clipRunes(rv.Answer, 800))
+				}
+				user.WriteString("\n")
+			}
 		}
 	}
 	if len(req.History) > 0 {
@@ -1910,11 +1957,27 @@ func (d *DesignService) askDesign(w http.ResponseWriter, r *http.Request) {
 		writeErr(w, http.StatusBadGateway, "LLM call failed: "+err.Error())
 		return
 	}
+	// Keep the exchange in the design history (tagged with the deployed version).
+	if d.reviewStore != nil && req.ProcessID != "" {
+		_ = d.reviewStore.SaveDesignReview(r.Context(), &repository.DesignReview{
+			ID: domain.NewUUID(), ProcessID: req.ProcessID, DesignVersion: activeVersion,
+			Prompt: strings.TrimSpace(req.Prompt), Answer: answer, CreatedAt: time.Now().UTC(),
+		})
+	}
 	writeJSON(w, http.StatusOK, map[string]any{"answer": answer})
 }
 
 func fmtTasksCount(def *domain.ProcessDefinition) string {
 	return fmt.Sprintf("(%d tasks)", len(def.Tasks))
+}
+
+// clipRunes truncates s to at most n runes (ellipsis when cut).
+func clipRunes(s string, n int) string {
+	r := []rune(s)
+	if len(r) <= n {
+		return s
+	}
+	return string(r[:n]) + "…"
 }
 
 // definitionToYAML renders a registered definition as the engine-section

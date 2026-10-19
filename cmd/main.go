@@ -397,6 +397,9 @@ func main() {
 	pcStore.RegisterManagementRoutes(mux, authSvc)
 	designSvc := processconfig.NewDesignService(pcStore, designStore, store, designClient, logger)
 	designSvc.SetStateLister(store) // delete guard: no executed instances
+	if rs, ok := any(logStore).(repository.DesignReviewStore); ok {
+		designSvc.SetReviewStore(rs) // AI design-review history (design history)
+	}
 	designSvc.SetQuotaGuard(h.EnforceQuota) // designer monthly quota on the design chat
 	designSvc.RegisterRoutes(mux)
 	// Every design write (UI or AI chat) refreshes the single pending design

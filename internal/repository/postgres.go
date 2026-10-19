@@ -49,6 +49,20 @@ CREATE TABLE IF NOT EXISTS llm_logs (
 CREATE INDEX IF NOT EXISTS idx_llm_logs_process
     ON llm_logs (process_id, created_at);
 
+-- AI design reviews: the designer chat's validation prompts + verdicts,
+-- kept in the process's design history (tagged with the deployed version).
+CREATE TABLE IF NOT EXISTS design_ai_reviews (
+    id             TEXT PRIMARY KEY,
+    process_id     TEXT NOT NULL,
+    design_version INTEGER NOT NULL DEFAULT 0,
+    prompt         TEXT NOT NULL,
+    answer         TEXT NOT NULL,
+    created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_design_ai_reviews_process
+    ON design_ai_reviews (process_id, created_at DESC);
+
 ALTER TABLE llm_logs ADD COLUMN IF NOT EXISTS prompt_tokens BIGINT NOT NULL DEFAULT 0;
 ALTER TABLE llm_logs ADD COLUMN IF NOT EXISTS completion_tokens BIGINT NOT NULL DEFAULT 0;
 ALTER TABLE llm_logs ADD COLUMN IF NOT EXISTS username TEXT NOT NULL DEFAULT '';
