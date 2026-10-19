@@ -2150,7 +2150,11 @@ Design rules you must respect (the server re-validates and rejects violations):
 
 Keep answers concise, plain text, at most a short explanation plus at most
 one tool block. If a tool result reports an error, fix the request and call
-again. Always respond in: ` + lang + `.`
+again. NEVER claim a change was made unless you emitted the tool block AND a
+tool result reported success — if you did not call a tool, say you are ready
+to apply it and emit the call. A tool block must be ONE complete, valid
+JSON object (never truncated); the client executes it only after the user
+confirms it. Always respond in: ` + lang + `.`
 	return strings.ReplaceAll(prompt, "@FENCE@", fence)
 }
 
