@@ -848,7 +848,7 @@ func (d *DesignService) deleteTask(w http.ResponseWriter, r *http.Request) {
 		} else if list, ok := doc["tasks"].([]any); ok {
 			kept := list[:0]
 			for _, t := range list {
-				if tm, ok := t.(map[string]any); ok && strEq(tm["task"], req.Task) {
+				if tm, ok := t.(map[string]any); ok && (strEq(tm["task_id"], req.Task) || strEq(tm["name"], req.Task) || strEq(tm["task"], req.Task)) {
 					continue
 				}
 				kept = append(kept, t)
