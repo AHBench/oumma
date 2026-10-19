@@ -696,8 +696,16 @@ func (d *DesignService) addHumanTask(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	default:
-		writeErr(w, http.StatusBadRequest, "type must be HUMAN, START or END (system tasks use add-system-task/add-tool-task)")
-		return
+		// Visual gateway nodes (exclusive / fork / join AND / join OR) are
+		// standalone canvas elements compiled into edge semantics at deploy.
+		if !strings.HasPrefix(req.Type, "GATEWAY_") {
+			writeErr(w, http.StatusBadRequest, "type must be HUMAN, START, END or GATEWAY_* (system tasks use add-system-task/add-tool-task)")
+			return
+		}
+		if req.Name == "" {
+			writeErr(w, http.StatusBadRequest, "'name' is required")
+			return
+		}
 	}
 	if _, ok := d.store.Get(processID); !ok {
 		writeErr(w, http.StatusNotFound, "Process not found in the management store: "+processID)
@@ -1353,13 +1361,23 @@ func (d *DesignService) deployDesign(w http.ResponseWriter, r *http.Request) {
 	}
 	semver := computeDesignSemver(actSemver, activeBytes, dv.Design)
 
+	// Compile the visual gateway nodes the designer places on the canvas
+	// into the engine's edge-based gateway semantics. The stored design
+	// keeps the user's gateway nodes (the canvas shows them with their
+	// input/output connections); the engine registers the compiled form.
+	compiled, gerr := compileGateways(dv.Design)
+	if gerr != nil {
+		writeErr(w, http.StatusBadRequest, gerr.Error())
+		return
+	}
+
 	if err := d.designs.SetActiveDesignSemver(r.Context(), req.ProcessID, dv.Version, semver); err != nil {
 		writeErr(w, http.StatusInternalServerError, err.Error())
 		return
 	}
 	// Register the deployed design so /definitions and engine startup see it.
 	if d.reg != nil {
-		if def, perr := repository.DesignOf(dv.Design); perr == nil {
+		if def, perr := repository.DesignOf(compiled); perr == nil {
 			if err := d.reg.RegisterDefinition(r.Context(), def); err != nil {
 				d.log.Warn("deploy: definition registration failed", "processId", req.ProcessID, "error", err)
 			}
@@ -1369,7 +1387,7 @@ func (d *DesignService) deployDesign(w http.ResponseWriter, r *http.Request) {
 	}
 	// Keep the on-disk document in sync with the deployed engine section so
 	// the file always reflects the live design (discard restores from it).
-	d.writeEngineSectionToDisk(r.Context(), req.ProcessID, dv.Design)
+	d.writeEngineSectionToDisk(r.Context(), req.ProcessID, compiled)
 	// If the deployed design renamed a task (1:1 swap vs the previous
 	// active version), cascade the rename into the app section so form
 	// steps and role tasks keep pointing at the task.
@@ -1380,6 +1398,146 @@ func (d *DesignService) deployDesign(w http.ResponseWriter, r *http.Request) {
 		"semver":    semver,
 		"deployed":  true,
 	})
+}
+
+// compileGateways rewrites the visual gateway nodes (GATEWAY_* tasks placed
+// on the design canvas) into the engine's edge-based gateway semantics:
+//
+//	GATEWAY_EXCLUSIVE        1 input + 1..n outputs -> one conditional edge
+//	                         per output (input -> output, keeping condition)
+//	GATEWAY_FORK             1 input + 1..n outputs -> fork edges
+//	GATEWAY_JOIN_AND / _OR   2..n inputs + 1 output -> a single join edge
+//
+// The design document's tasks/topology are rewritten so the engine never
+// sees a gateway as an executable task. Documents without gateways are
+// returned unchanged.
+func compileGateways(doc []byte) ([]byte, error) {
+	var raw map[string]json.RawMessage
+	if err := json.Unmarshal(doc, &raw); err != nil {
+		return doc, nil // not a JSON design doc; leave as-is
+	}
+	topRaw, hasTop := raw["topology"]
+	if !hasTop {
+		return doc, nil
+	}
+	var edges []domain.Edge
+	if err := json.Unmarshal(topRaw, &edges); err != nil {
+		return doc, nil
+	}
+
+	// Task names + types, accepting both list and map encodings.
+	type gwTask struct{ id, typ string }
+	var gwTasks []gwTask
+	if tRaw, ok := raw["tasks"]; ok {
+		var list []map[string]any
+		isList := json.Unmarshal(tRaw, &list) == nil
+		items := map[string]map[string]any{}
+		if isList {
+			for _, t := range list {
+				id, _ := t["task_id"].(string)
+				if id == "" {
+					id, _ = t["name"].(string)
+				}
+				if id != "" {
+					items[id] = t
+				}
+			}
+		} else {
+			_ = json.Unmarshal(tRaw, &items)
+		}
+		for id, t := range items {
+			typ, _ := t["type"].(string)
+			if strings.HasPrefix(typ, "GATEWAY_") {
+				gwTasks = append(gwTasks, gwTask{id, typ})
+			}
+		}
+	}
+	if len(gwTasks) == 0 {
+		return doc, nil
+	}
+	isGw := make(map[string]bool, len(gwTasks))
+	for _, g := range gwTasks {
+		isGw[g.id] = true
+	}
+
+	out := make([]domain.Edge, 0, len(edges))
+	for _, e := range edges {
+		if isGw[e.From] || isGw[e.To] {
+			continue // rewritten below
+		}
+		out = append(out, e)
+	}
+	for _, g := range gwTasks {
+		var inputs []string
+		var outputs []domain.Edge
+		for _, e := range edges {
+			if e.To == g.id && e.From != "" && len(e.JoinFrom) == 0 {
+				inputs = append(inputs, e.From)
+			}
+			if e.From == g.id {
+				outputs = append(outputs, e)
+			}
+		}
+		switch g.typ {
+		case "GATEWAY_EXCLUSIVE", "GATEWAY_FORK":
+			if len(inputs) != 1 || len(outputs) < 1 {
+				return nil, fmt.Errorf("gateway %q: connect exactly 1 input step and at least 1 output step before deploying", g.id)
+			}
+			for _, o := range outputs {
+				ne := domain.Edge{From: inputs[0], To: o.To, Condition: o.Condition}
+				if g.typ == "GATEWAY_FORK" {
+					ne.Fork = true
+				}
+				out = append(out, ne)
+			}
+		case "GATEWAY_JOIN_AND", "GATEWAY_JOIN_OR":
+			if len(inputs) < 2 || len(outputs) != 1 {
+				return nil, fmt.Errorf("gateway %q: connect at least 2 input steps and exactly 1 output step before deploying", g.id)
+			}
+			join := "and"
+			if g.typ == "GATEWAY_JOIN_OR" {
+				join = "or"
+			}
+			out = append(out, domain.Edge{JoinFrom: inputs, To: outputs[0].To, Join: join})
+		default:
+			return nil, fmt.Errorf("unknown gateway type %q on %q", g.typ, g.id)
+		}
+	}
+
+	op, err := json.Marshal(out)
+	if err != nil {
+		return doc, nil
+	}
+	raw["topology"] = op
+
+	// Remove the gateway tasks from the tasks section (either encoding).
+	var list []map[string]any
+	if tRaw, ok := raw["tasks"]; ok && json.Unmarshal(tRaw, &list) == nil {
+		kept := make([]map[string]any, 0, len(list))
+		for _, t := range list {
+			id, _ := t["task_id"].(string)
+			if id == "" {
+				id, _ = t["name"].(string)
+			}
+			if !isGw[id] {
+				kept = append(kept, t)
+			}
+		}
+		if kb, err := json.Marshal(kept); err == nil {
+			raw["tasks"] = kb
+		}
+	} else if m, ok := raw["tasks"]; ok {
+		var items map[string]map[string]any
+		if json.Unmarshal(m, &items) == nil {
+			for id := range isGw {
+				delete(items, id)
+			}
+			if mb, err := json.Marshal(items); err == nil {
+				raw["tasks"] = mb
+			}
+		}
+	}
+	return json.Marshal(raw)
 }
 
 // cascadeTaskRenames aligns the app section (form step ids, role task

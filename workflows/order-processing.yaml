@@ -468,6 +468,7 @@ tasks:
       task_id: start
       type: START
     - config:
+        description: Validates the incoming order data
         headers:
             X-Service: order-validation
         method: POST
@@ -595,3 +596,6 @@ topology:
     - condition: payment completed or failed
       from: process_payment
       to: end
+    - condition: fraud suspected
+      from: validate_order
+      to: manual_review
