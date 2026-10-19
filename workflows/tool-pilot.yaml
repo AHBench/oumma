@@ -119,6 +119,12 @@ tasks:
         id: Send Email Receipt
         task_id: Send Email Receipt
         type: SYSTEM
+    TestStep:
+        description: TestStep
+        group: CustRelations
+        id: TestStep
+        task_id: TestStep
+        type: HUMAN
     Verify Applicant:
         description: Manual verification of the applicant
         group: CustRelations

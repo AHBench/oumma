@@ -113,6 +113,7 @@ func (d *DesignService) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/management/design/{processId}/rename", d.designGuard(d.renameProcess))
 	mux.HandleFunc("POST /api/management/design/{processId}/delete", d.designGuard(d.deleteProcess))
 	mux.HandleFunc("POST /api/management/design/{processId}/add-edge", d.designGuard(d.addEdge))
+	mux.HandleFunc("POST /api/management/design/{processId}/update-edge", d.designGuard(d.updateEdge))
 	mux.HandleFunc("POST /api/management/design/{processId}/delete-task", d.designGuard(d.deleteTask))
 	mux.HandleFunc("POST /api/management/design/{processId}/delete-edge", d.designGuard(d.deleteEdge))
 	mux.HandleFunc("POST /api/management/design/{processId}/update-task", d.designGuard(d.updateTask))
@@ -826,6 +827,97 @@ func (d *DesignService) addEdge(w http.ResponseWriter, r *http.Request) {
 
 // deleteTask removes a task and every topology reference to/from it.
 // Lifecycle nodes (start/end) are protected.
+// updateEdge updates an existing topology edge in the pending design:
+// condition, fork flag, join kind and join_from. Plain edges match on
+// from+to; join edges (no "from") match on to + a join_from member.
+func (d *DesignService) updateEdge(w http.ResponseWriter, r *http.Request) {
+	processID := r.PathValue("processId")
+	var req struct {
+		From      string   `json:"from"`
+		To        string   `json:"to"`
+		Condition *string  `json:"condition"`
+		Fork      *bool    `json:"fork"`
+		Join      string   `json:"join"`
+		JoinFrom  []string `json:"join_from"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeErr(w, http.StatusBadRequest, "Invalid request body")
+		return
+	}
+	req.From = strings.TrimSpace(req.From)
+	req.To = strings.TrimSpace(req.To)
+	if req.To == "" {
+		writeErr(w, http.StatusBadRequest, "'to' is required")
+		return
+	}
+	if len(req.JoinFrom) == 0 && req.From == "" {
+		writeErr(w, http.StatusBadRequest, "'from' is required (or join_from for a join edge)")
+		return
+	}
+	err := d.store.Update(processID, func(doc map[string]any) (map[string]any, error) {
+		edges, _ := doc["topology"].([]any)
+		for _, e := range edges {
+			m, ok := e.(map[string]any)
+			if !ok || !strEq(m["to"], req.To) {
+				continue
+			}
+			jf, isJoin := m["join_from"].([]any)
+			if isJoin {
+				if req.From == "" {
+					continue
+				}
+				found := false
+				for _, j := range jf {
+					if strEq(j, req.From) {
+						found = true
+						break
+					}
+				}
+				if !found {
+					continue
+				}
+			} else if !strEq(m["from"], req.From) {
+				continue
+			}
+			if req.Condition != nil {
+				c := strings.TrimSpace(*req.Condition)
+				m["condition"] = firstNonEmpty(c, "always")
+			}
+			if req.Fork != nil {
+				if *req.Fork {
+					m["fork"] = true
+				} else {
+					delete(m, "fork")
+				}
+			}
+			if j := strings.TrimSpace(req.Join); j == "and" || j == "or" {
+				m["join"] = j
+			}
+			if len(req.JoinFrom) > 0 {
+				nf := make([]any, 0, len(req.JoinFrom))
+				for _, j := range req.JoinFrom {
+					if j == "" {
+						continue
+					}
+					if !docTaskExists(doc, j) {
+						return nil, fmt.Errorf("join_from task not found: %q", j)
+					}
+					nf = append(nf, j)
+				}
+				m["join_from"] = nf
+			}
+			return doc, nil
+		}
+		return nil, fmt.Errorf("edge not found")
+	})
+	if err != nil {
+		writeErr(w, http.StatusConflict, err.Error())
+		return
+	}
+	d.log.Info("topology edge updated (pending version)", "processId", processID, "from", req.From, "to", req.To)
+	writeJSON(w, http.StatusOK, map[string]any{"updated": true, "from": req.From, "to": req.To})
+}
+
 func (d *DesignService) deleteTask(w http.ResponseWriter, r *http.Request) {
 	processID := r.PathValue("processId")
 	var req struct {
