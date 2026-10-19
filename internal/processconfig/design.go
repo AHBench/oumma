@@ -1412,6 +1412,9 @@ func (d *DesignService) deployDesign(w http.ResponseWriter, r *http.Request) {
 	// Keep the on-disk document in sync with the deployed engine section so
 	// the file always reflects the live design (discard restores from it).
 	d.writeEngineSectionToDisk(r.Context(), req.ProcessID, compiled)
+	// Form configuration is part of the design version: roll the live form
+	// steps back to this version's snapshot (form instances are untouched).
+	d.writeFormsSectionToDisk(r.Context(), req.ProcessID, dv.Design)
 	// If the deployed design renamed a task (1:1 swap vs the previous
 	// active version), cascade the rename into the app section so form
 	// steps and role tasks keep pointing at the task.
@@ -1640,9 +1643,11 @@ func taskIDsFromDoc(doc []byte) map[string]bool {
 }
 
 // writeEngineSectionToDisk replaces the ENGINE keys of the process YAML with
-// the deployed design. The app section (roles, forms, search items, ...)
-// is NEVER touched — it has its own write path (management endpoints) and
-// overwriting it here would clobber live app config with a stale snapshot.
+// the deployed design. The app section (roles, search items, ...) is never
+// touched by this — forms are handled separately by
+// writeFormsSectionToDisk (form configuration belongs to the design
+// version and is rolled back on deploy); the rest of the app section has
+// its own write path (management endpoints).
 func (d *DesignService) writeEngineSectionToDisk(ctx context.Context, processID string, design []byte) {
 	var defMap map[string]any
 	if err := json.Unmarshal(design, &defMap); err != nil {
@@ -1675,6 +1680,35 @@ func (d *DesignService) writeEngineSectionToDisk(ctx context.Context, processID 
 		}
 		return doc, nil
 	})
+}
+
+// writeFormsSectionToDisk rolls the live form CONFIGURATION back to the
+// snapshot stored in the version being deployed: form configuration is
+// versioned with the process design, so deploying (or rolling back to)
+// a version restores that version's form steps, exactly like the engine
+// section. Form INSTANCES (filled-in values / form input data) live per
+// process instance and are never touched.
+func (d *DesignService) writeFormsSectionToDisk(ctx context.Context, processID string, designDoc []byte) {
+	var doc map[string]any
+	if err := json.Unmarshal(designDoc, &doc); err != nil {
+		return
+	}
+	appM, _ := doc["app"].(map[string]any)
+	// A version document without a forms key must not wipe the live forms.
+	if _, ok := appM["forms"]; !ok {
+		return
+	}
+	app, err := appFromMap(doc)
+	if err != nil || app == nil {
+		d.log.Warn("deploy: version app section unparseable; forms not rolled back", "processId", processID, "error", err)
+		return
+	}
+	if _, err := d.store.mutateApp(processID, func(a *AppConfig) error {
+		a.Forms = app.Forms
+		return nil
+	}); err != nil {
+		d.log.Warn("deploy: form rollback failed", "processId", processID, "error", err)
+	}
 }
 
 // discardDesign reverts the unconfirmed (pending) changes: the live process
