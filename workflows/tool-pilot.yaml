@@ -8,6 +8,10 @@ app:
               form_input: null
               launchable: true
               step_id: Verify Applicant
+            - fields: []
+              form_input: ""
+              launchable: false
+              step_id: Check Docs
             - fields:
                 - api_key: ""
                   field_database_password: ""
@@ -18,7 +22,7 @@ app:
                   field_label: Validate
                   field_max_length: null
                   field_min_length: null
-                  field_multple_choice: null
+                  field_multple_choice: false
                   field_name: $validation
                   field_options: []
                   field_pattern: ""
@@ -31,41 +35,11 @@ app:
                   field_table_name: ""
                   field_template: null
                   field_type: text
-                  field_unique: null
-                  user_can_add: null
-                - api_key: ""
-                  field_database_password: ""
-                  field_database_user: ""
-                  field_db_query: ""
-                  field_edit: true
-                  field_header_display: false
-                  field_label: Choice
-                  field_max_length: null
-                  field_min_length: null
-                  field_multple_choice: null
-                  field_name: $choice
-                  field_options:
-                    - "Yes"
-                    - "No"
-                  field_pattern: ""
-                  field_required: false
-                  field_row: 2
-                  field_source: ""
-                  field_source_type: ""
-                  field_tab: Validation
-                  field_table_field_names: []
-                  field_table_name: ""
-                  field_template: null
-                  field_type: dropdown
-                  field_unique: null
-                  user_can_add: null
+                  field_unique: false
+                  user_can_add: false
               form_input: ""
               launchable: false
               step_id: TestStep
-            - fields: []
-              form_input: ""
-              launchable: false
-              step_id: Check Docs
     icon_key: card
     icon_path: ""
     launch_role_id: CustRelations
