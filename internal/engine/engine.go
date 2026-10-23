@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
@@ -21,6 +22,9 @@ import (
 	"oumma/internal/events"
 	"oumma/internal/repository"
 )
+
+// toolInputTemplateRe matches {{field}} placeholders in tool-task input values.
+var toolInputTemplateRe = regexp.MustCompile(`\{\{\s*([\w$.\-]+)\s*\}\}`)
 
 // Engine is the core workflow execution loop.
 type Engine struct {
@@ -1324,10 +1328,21 @@ outerLoop:
 		} else if isToolTask {
 			preparedInput = map[string]any{}
 			for param, ctxKey := range task.Config.ToolInputs {
-				if v, ok := state.GlobalContext[strings.TrimSpace(ctxKey)]; ok {
+				ctxKey = strings.TrimSpace(ctxKey)
+				if v, ok := state.GlobalContext[ctxKey]; ok {
 					preparedInput[param] = v
-				} else if v, ok := state.GlobalContext[ctxKey]; ok {
-					preparedInput[param] = v
+				} else if toolInputTemplateRe.MatchString(ctxKey) {
+					// Template value: interpolate {{field}} placeholders from the context.
+					preparedInput[param] = toolInputTemplateRe.ReplaceAllStringFunc(ctxKey, func(m string) string {
+						k := m[2 : len(m)-2]
+						if v, ok := state.GlobalContext[k]; ok {
+							return fmt.Sprint(v)
+						}
+						return ""
+					})
+				} else if ctxKey != "" {
+					// No matching context field and no template markers: send the value as a literal.
+					preparedInput[param] = ctxKey
 				}
 			}
 			log.Info("tool task input resolved (no LLM)", "task_id", task.ID, "tool", task.Config.Tool)
