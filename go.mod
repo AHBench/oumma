@@ -1,6 +1,6 @@
 module oumma
 
-go 1.22.0
+go 1.26.10
 
 require (
 	github.com/ledongthuc/pdf v0.0.0-20240201131950-da5b75280b06
