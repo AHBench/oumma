@@ -162,6 +162,180 @@ app:
               form_input: null
               launchable: false
               step_id: manager_review
+            - fields:
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: customer_phone
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: customer_phone
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 1
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: order_items
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: order_items
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 2
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: amount
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: amount
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 3
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: currency
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: currency
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 4
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: raw_message
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: raw_message
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 5
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: wa_message_id
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: wa_message_id
+                  field_options: []
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 6
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: text
+                  field_unique: null
+                  user_can_add: null
+                - api_key: ""
+                  field_database_password: ""
+                  field_database_user: ""
+                  field_db_query: ""
+                  field_edit: null
+                  field_header_display: null
+                  field_label: $decision
+                  field_max_length: null
+                  field_min_length: null
+                  field_multple_choice: null
+                  field_name: $decision
+                  field_options:
+                    - approve
+                    - reject
+                  field_pattern: ""
+                  field_required: true
+                  field_row: 7
+                  field_source: ""
+                  field_source_type: ""
+                  field_tab: General
+                  field_table_field_names: []
+                  field_table_name: ""
+                  field_template: null
+                  field_type: dropdown
+                  field_unique: null
+                  user_can_add: null
+              form_input: null
+              launchable: false
+              step_id: confirm_order
     icon_key: e-credit-card
     icon_path: ""
     launch_role_id: Operateur
@@ -219,6 +393,39 @@ app:
               initial_task: false
               requires_decision_form: true
               task_name: order_check
+            - action_groups:
+                - action_group: attachment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                - action_group: comment
+                  actions:
+                    - action_name: read
+                      action_value: true
+                    - action_name: write
+                      action_value: true
+                    - action_name: update
+                      action_value: true
+                    - action_name: delete
+                      action_value: true
+                - action_group: action
+                  actions:
+                    - action_name: skip
+                      action_value: true
+                    - action_name: Complete
+                      action_value: true
+                    - action_name: Claim
+                      action_value: true
+                    - action_name: Release
+                      action_value: true
+              can_edit_initial_form: false
+              initial_task: false
+              requires_decision_form: true
+              task_name: confirm_order
           search_items: []
           view_access_roles: []
         - apply_dept_filter: true
@@ -231,16 +438,16 @@ app:
                 - write
                 - view
                 - share
-                - delete
-              role_id: cashier
-              role_name: cashier
+              role_id: management
+              role_name: management
             - permissions:
                 - read
                 - write
                 - view
                 - share
-              role_id: management
-              role_name: management
+                - delete
+              role_id: cashier
+              role_name: cashier
           role_id: cashier
           role_name: cashier
           role_tasks:
@@ -290,16 +497,16 @@ app:
                 - write
                 - view
                 - share
-              role_id: cashier
-              role_name: cashier
+                - delete
+              role_id: management
+              role_name: management
             - permissions:
                 - read
                 - write
                 - view
                 - share
-                - delete
-              role_id: management
-              role_name: management
+              role_id: cashier
+              role_name: cashier
           role_id: management
           role_name: management
           role_tasks:
@@ -391,8 +598,8 @@ app:
           field_name: $needs_manager
           field_type: field_label
         - field_label_ar: القرار
-          field_label_en: Decision
-          field_label_fr: Décision
+          field_label_en: La décision
+          field_label_fr: Decision
           field_name: $decision
           field_type: field_label
         - field_label_ar: نتيجة التحقق
@@ -455,6 +662,36 @@ app:
           field_label_fr: 'Concevoir ce processus : diagramme, formulaires, rôles, éléments de recherche et versions'
           field_name: hint.process_design
           field_type: hint
+        - field_label_ar: هاتف العميل
+          field_label_en: Client téléphone
+          field_label_fr: Téléphone du client
+          field_name: customer_phone
+          field_type: field_label
+        - field_label_ar: أصناف الطلب
+          field_label_en: Articles commandés
+          field_label_fr: Commanded items
+          field_name: order_items
+          field_type: field_label
+        - field_label_ar: المبلغ
+          field_label_en: Montant
+          field_label_fr: Amount
+          field_name: amount
+          field_type: field_label
+        - field_label_ar: العملة
+          field_label_en: Devise
+          field_label_fr: Currency
+          field_name: currency
+          field_type: field_label
+        - field_label_ar: رسالة واتساب
+          field_label_en: Message WhatsApp
+          field_label_fr: WhatsApp message
+          field_name: raw_message
+          field_type: field_label
+        - field_label_ar: معرّف الرسالة
+          field_label_en: ID message WhatsApp
+          field_label_fr: WhatsApp message ID
+          field_name: wa_message_id
+          field_type: field_label
     service_name: ""
     shared_process_ids: []
     task_groups: null
@@ -568,10 +805,24 @@ tasks:
     - description: Finalize order processing
       task_id: end
       type: END
+    - description: Operator confirms the WhatsApp-originated order with the AI assistant before validation
+      group: Operateur
+      id: confirm_order
+      task_id: confirm_order
+      type: HUMAN
+    - config:
+        tool: mcp.whatsapp.send
+        tool_config:
+            access_token: PASTE_META_CLOUD_TOKEN  # scan-secrets: allow — placeholder, real token never committed
+            phone_number_id: PASTE_WA_PHONE_ID  # scan-secrets: allow — placeholder, real ID never committed
+        tool_inputs:
+            message: 'Oumma: votre commande {{order_id}} n''a pas pu etre acceptee. Merci de nous recontacter.'
+            to: customer_phone
+      description: notify_customer_wa
+      id: notify_customer_wa
+      task_id: notify_customer_wa
+      type: SYSTEM
 topology:
-    - condition: always
-      from: start
-      to: validate_order
     - condition: order is valid and requires human review
       from: validate_order
       to: manual_review
@@ -599,3 +850,15 @@ topology:
     - condition: fraud suspected
       from: validate_order
       to: manual_review
+    - condition: always
+      from: start
+      to: confirm_order
+    - condition: operator confirmed the WhatsApp order ($decision = approve)
+      from: confirm_order
+      to: validate_order
+    - condition: operator rejected the WhatsApp order ($decision = reject) — notify the customer, then close
+      from: confirm_order
+      to: notify_customer_wa
+    - condition: always — after the WhatsApp notification the order is closed
+      from: notify_customer_wa
+      to: end
