@@ -471,7 +471,7 @@ func (s *Service) handleSearchSavedForms(w http.ResponseWriter, r *http.Request)
 		q.Get("field_name"), q.Get("field_value"),
 		q.Get("process_id"), q.Get("step_id"),
 		intParam(q, "limit"), boolParam(q, "activeform"),
-		q["departments"], q["groups"])
+		processDepartmentsList(q["departments"]), q["groups"])
 	if e != nil {
 		writeErr(w, e)
 		return

@@ -53,6 +53,10 @@ type Handler struct {
 	// formIDValidator, when set, checks that a launched form_id belongs to
 	// the process's saved forms (oper-data). Nil = presence check only.
 	formIDValidator func(processID, formID string) bool
+	// formInstanceLinker, when set, records the new instance id on the
+	// launched form's step (oper-data) so the form matches activeform=true
+	// and appears in the My-Dossiers grid. Nil = no link (legacy behavior).
+	formInstanceLinker func(ctx context.Context, formID, instanceID string)
 	// mailer delivers outbound mail (quota claims) — SMTP via the Keycloak
 	// realm settings, then HTTP gateway, then log mode.
 	mailer func(ctx context.Context, to, subject, body string) (string, error)
@@ -66,6 +70,12 @@ func (h *Handler) SetMailer(fn func(ctx context.Context, to, subject, body strin
 // SetFormIDValidator wires the oper-data form_id ownership check for launches.
 func (h *Handler) SetFormIDValidator(fn func(processID, formID string) bool) {
 	h.formIDValidator = fn
+}
+
+// SetFormInstanceLinker wires the form↔instance link written after a
+// successful launch (forms.Service.LinkInstance).
+func (h *Handler) SetFormInstanceLinker(fn func(ctx context.Context, formID, instanceID string)) {
+	h.formInstanceLinker = fn
 }
 
 // requireLaunchFormID enforces that a process instance can only be launched
@@ -353,6 +363,15 @@ func (h *Handler) StartProcess(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, err.Error())
 		return
+	}
+
+	// Best-effort form↔instance link: a failure here must not fail the
+	// launch — the instance is already running; the dossier grid would just
+	// not show this form.
+	if h.formInstanceLinker != nil {
+		if fid, _ := ctx["form_id"].(string); strings.TrimSpace(fid) != "" {
+			h.formInstanceLinker(r.Context(), fid, processID)
+		}
 	}
 
 	writeJSON(w, http.StatusAccepted, processResponse{

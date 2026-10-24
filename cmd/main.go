@@ -437,6 +437,14 @@ func main() {
 			h.SetFormIDValidator(func(processID, formID string) bool {
 				return formsSvc.ValidFormID(context.Background(), processID, formID)
 			})
+			// Link the launched instance to its form so the form matches
+			// activeform=true (My-Dossiers grid). Best-effort: the launch
+			// itself already succeeded at this point.
+			h.SetFormInstanceLinker(func(ctx context.Context, formID, instanceID string) {
+				if err := formsSvc.LinkInstance(ctx, formID, instanceID); err != nil {
+					logger.Error("form instance link failed", "form_id", formID, "instance", instanceID, "error", err)
+				}
+			})
 		}
 	}
 
